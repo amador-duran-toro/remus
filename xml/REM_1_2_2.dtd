@@ -47,9 +47,9 @@
      rem:userDefinedValueType     |
      rem:associationType          |
      rem:systemOperation          |
-	 rem:conflict                 |
+     rem:conflict                 |
      rem:defect                   |
-	 rem:changeRequest            |
+     rem:changeRequest            |
      rem:traceabilityMatrix"
 >
 
@@ -141,7 +141,7 @@
     rem:c_requirementsSpecification, 
     rem:d_requirementsSpecification, 
     rem:defectsSpecification,
-	rem:changeRequestsSpecification,
+    rem:changeRequestsSpecification,
     rem:trace*,
     rem:predefinedValueTypes,
     rem:predefinedValues
@@ -955,8 +955,8 @@ REM 1.2 -->
     (%SpecificationObject;),
     rem:description,
     rem:solution,
-	rem:directlyAffects?,
-	rem:indirectlyAffects?,
+    rem:directlyAffects?,
+    rem:indirectlyAffects?,
     rem:status,
     rem:importance,
     rem:urgency,
@@ -996,8 +996,8 @@ REM 1.2 -->
     rem:description,
     rem:solution,
     rem:defectType,
-	rem:directlyAffects?,
-	rem:indirectlyAffects?,
+    rem:directlyAffects?,
+    rem:indirectlyAffects?,
     rem:status,
     rem:importance,
     rem:urgency,
@@ -1021,8 +1021,8 @@ REM 1.2 -->
     (%SpecificationObject;),
     rem:description,
     rem:analysis,
-	rem:directlyAffects?,
-	rem:indirectlyAffects?,
+    rem:directlyAffects?,
+    rem:indirectlyAffects?,
     rem:status,
     rem:importance,
     rem:urgency
@@ -1076,7 +1076,7 @@ REM 1.2 -->
 <!ELEMENT rem:predefinedValues (
     ( 
       rem:changeRequestStatusValue |
-	  rem:conflictStatusValue      |
+      rem:conflictStatusValue      |
       rem:defectStatusValue		   |
       rem:defectTypeValue		   |
       rem:importanceValue		   |   
