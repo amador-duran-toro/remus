@@ -1,0 +1,144 @@
+/* =================================================== */
+/* File    : REMUS.css                                 */
+/* Content : REM CSS for subjects at US                */
+/* Author  : Amador Durán Toro                         */
+/* Date    : 2020/04/12                                */
+/* Version : 3.0                                       */
+/* =================================================== */
+
+/* =================================================== */
+/* The browser inside REM is IE7, so this file only    */
+/* contains CSS supported by IE7.                      */
+/* --------------------------------------------------- */
+/* IE 7 does not support :before and :after in CSS     */
+/* =================================================== */
+
+body {
+  font-family: calibri,cambria,verdana,arial;
+  font-size:   12pt;
+  text-align:  justify;
+}
+
+code {
+  font-size: small;
+}
+
+#warning_container {
+  display: none;
+  padding: 6px;
+  margin-bottom: 10pt;
+  font-size: small;
+  background-color: lightyellow;
+}
+
+#warning_title {
+  font-weight: bold;
+}
+
+#warning_messages ul {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+#document_cover {
+  text-align: center;
+}
+
+#browser_info {
+  display: none;
+}
+
+#project_name, 
+#document_version, 
+#document_date {
+  font-weight: bold;
+  font-size: large;
+}
+
+#project_name {
+  margin-bottom: 50pt;
+}
+
+#document_logo {
+  margin-bottom: 20pt;
+}
+
+#document_name {
+  font-weight: bold;
+  font-size: xx-large;
+  margin-bottom: 20pt;
+}
+
+#document_version {
+  margin-bottom: 20pt;
+}
+
+#document_date {
+  margin-bottom: 50pt;
+}
+
+#document_prepared_by {
+  margin-bottom: 100pt;
+}
+
+.toc_list {
+  list-style-type: none;
+  list-style-position: outside;
+  list-style-image: none;
+  line-height: 150%;
+  font-weight: normal;
+}
+
+.toc_list_level_1 {
+  margin-left: 0pt;
+  font-weight: bold;
+}
+
+.tbd {
+  color: red;
+  font-weight: bold;
+}
+
+.part {
+  font-size:   xx-large;
+  font-weight: bold;
+  text-align:  center;
+  line-height: 150%;
+  margin-top: 200pt;
+  margin-bottom: 200pt;
+}
+
+.glo_item {
+  font-weight: bold;
+}
+
+.info {
+  /*font-style:  italic;*/
+  padding: 6px;
+  background-color: lightgrey;
+}
+
+.markdown {
+  display: none;
+/*
+  display: block;
+  height: 20em;
+  width: 80em;
+*/
+}
+
+.figure {
+  text-align: center;
+}
+
+.figure_image {
+
+}
+
+.figure_caption {
+
+}
+
+.figure_caption_label {
+  font-weight: bold;
+}
