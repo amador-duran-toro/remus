@@ -108,12 +108,29 @@ code {
   margin-bottom: 200pt;
 }
 
-.glo_item {
-  font-weight: bold;
+.glo, .bib {
+  padding-left: 1.5em;
+}
+
+.glo > div > p:first-child, 
+.bib > div > p:first-child {
+  text-indent: -1.5em;
+  /* padding-left: 1.5em; */
+}
+
+.glo p, 
+.bib p {
+  /* padding-left: 1.5em; */
+}
+
+.glo_link {
+
 }
 
 .info {
   /*font-style:  italic;*/
+  margin-top: 16px;
+  margin-bottom: 16px;
   padding: 8px;
   background-color: lightyellow;
   border: goldenrod solid;
@@ -131,15 +148,6 @@ code {
   margin-left: 42px;
 }
 
-.markdown {
-  display: none;
-/*
-  display: block;
-  height: 20em;
-  width: 80em;
-*/
-}
-
 .figure {
   text-align: center;
 }
@@ -149,9 +157,18 @@ code {
 }
 
 .figure_caption {
-
+  margin-top: 4px;
 }
 
 .figure_caption_label {
   font-weight: bold;
+}
+
+.markdown {
+  display: none;
+/*
+  display: block;
+  height: 20em;
+  width: 80em;
+*/
 }
