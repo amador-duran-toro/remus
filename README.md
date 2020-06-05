@@ -1,3 +1,3 @@
 # REquirements Manager (REM)
 
-Repository for _REquirements Manager_ (REM) update.
+Asset repository for _REquirements Manager_ of Universidad de Sevilla (REMUS).
