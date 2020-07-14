@@ -1,17 +1,18 @@
-/* =================================================== */
-/* File    : REMUS.css                                 */
-/* Content : REM CSS for subjects at US                */
-/* Author  : Amador Durán Toro                         */
-/* Date    : 2020/04/12                                */
-/* Version : 3.0                                       */
-/* =================================================== */
+/* ======================================================= */
+/* File    : REMUS.css                                     */
+/* Content : REM CSS for subjects at US                    */
+/* Author  : Amador Durán Toro                             */
+/* Date    : 2020/04/12                                    */
+/* Version : 3.0                                           */
+/* ======================================================= */
 
-/* =================================================== */
-/* The browser inside REM is IE7, so this file only    */
-/* contains CSS supported by IE7.                      */
-/* --------------------------------------------------- */
-/* IE 7 does not support :before and :after in CSS     */
-/* =================================================== */
+/* ======================================================= */
+/* The browser inside REM is IE7, so this file only        */
+/* contains CSS supported by IE7.                          */
+/* ------------------------------------------------------- */
+/* IE 7 does not support :before and :after in CSS         */
+/* IE 7 does not support :last-child and :nth-child in CSS */
+/* ======================================================= */
 
 body {
   font-family: calibri,cambria,verdana,arial;
@@ -48,8 +49,8 @@ code {
   display: none;
 }
 
-#project_name, 
-#document_version, 
+#project_name,
+#document_version,
 #document_date {
   font-weight: bold;
   font-size: large;
@@ -112,13 +113,13 @@ code {
   padding-left: 1.5em;
 }
 
-.glo > div > p:first-child, 
+.glo > div > p:first-child,
 .bib > div > p:first-child {
   text-indent: -1.5em;
   /* padding-left: 1.5em; */
 }
 
-.glo p, 
+.glo p,
 .bib p {
   /* padding-left: 1.5em; */
 }
@@ -175,27 +176,35 @@ code {
 }
 
 table.remus_table {
-  width: 90%;
   margin-left: 2.5%;
+  width: 95%;
   box-shadow: 8px 8px 4px lightgrey;
 }
 
-table.remus_table, 
-table.remus_table th, 
+table.remus_table,
+table.remus_table th,
 table.remus_table td {
   border-style: solid;
   border-collapse: collapse;
-  border-color: black;
+  border-color: lightslategray;
   border-width: 1px;
 }
 
-table.remus_table th, 
+table.remus_table th,
 table.remus_table td {
   padding: 8px;
 }
 
-table.remus_table > thead > tr > th:nth-child(2) {
-  width: 75%;
+table.remus_table th.name_column {
+  width: 100%;
+}
+
+table.remus_table > thead > tr > th:first-child {
+  white-space: nowrap;
+}
+
+table.remus_table > thead > tr > th:first-child > img:first-child {
+  padding-right: 0.25em;
 }
 
 table.organization > thead > tr {
@@ -204,12 +213,11 @@ table.organization > thead > tr {
 
 table.organization > thead > tr > th:first-child > img:first-child {
 /*
-  background-image: url(file:///D:/REM%201.3/REM.github/assets/images/organization.ico);  
+  background-image: url(file:///D:/REM%201.3/REM.github/assets/images/organization.ico);
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 24px 24px;
   min-height: 2em;
   padding-left: 2em;
 */
-padding-right: 0.25em;
 }
