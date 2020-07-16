@@ -20,6 +20,11 @@ body {
   text-align:  justify;
 }
 
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 code {
   font-size: small;
 }
@@ -46,7 +51,7 @@ code {
 }
 
 #browser_info {
-  display: none;
+  /*display: none;*/
 }
 
 #project_name,
@@ -146,7 +151,7 @@ code {
 }
 
 .info p {
-  margin: 0px;
+  /*margin: 0px;*/
   margin-left: 42px;
 }
 

@@ -29,14 +29,14 @@
 <!-- that can appear in a SpecificationDocument  -->
 
 <!ENTITY % SpecificationObjects
-    "rem:section                  | 
-     rem:paragraph                | 
+    "rem:section                  |
+     rem:paragraph                |
      rem:graphicFile              |
-     rem:glossaryItem             | 
-     rem:organization             | 
-     rem:stakeholder              | 
-     rem:meeting                  | 
-     rem:objective                | 
+     rem:glossaryItem             |
+     rem:organization             |
+     rem:stakeholder              |
+     rem:meeting                  |
+     rem:objective                |
      rem:actor                    |
      rem:informationRequirement   |
      rem:constraintRequirement    |
@@ -56,7 +56,7 @@
 <!-- This is the basic structure of a SpecificationDocument -->
 
 <!ENTITY % SpecificationDocument
-    "rem:name, 
+    "rem:name,
      rem:version,
      rem:comments?,
      rem:preparedFor?,
@@ -81,8 +81,8 @@
 
 <!ENTITY % SpecificationObject
     "rem:name,
-     rem:version, 
-     rem:authors?, 
+     rem:version,
+     rem:authors?,
      rem:sources?,
      rem:comments?,
      rem:change*"
@@ -132,14 +132,14 @@
 <!-- ========================================= -->
 
 <!-- A requirements project has a name and it is   -->
-<!-- composed by a CRS, a DRS, a CFS, a CHS,       --> 
+<!-- composed by a CRS, a DRS, a CFS, a CHS,       -->
 <!-- some traces, some predefined values types and -->
 <!-- some predefined values                        -->
 
-<!ELEMENT rem:requirementsProject ( 
+<!ELEMENT rem:requirementsProject (
     rem:name,
-    rem:c_requirementsSpecification, 
-    rem:d_requirementsSpecification, 
+    rem:c_requirementsSpecification,
+    rem:d_requirementsSpecification,
     rem:defectsSpecification,
     rem:changeRequestsSpecification,
     rem:trace*,
@@ -151,12 +151,12 @@
 
 <!-- REM 1.2
 
-<!ATTLIST rem:requirementsProject 
+<!ATTLIST rem:requirementsProject
     xmlns:rem CDATA "http://www.lsi.us.es/~amador/REM">
 
 REM 1.2 -->
 
-<!ATTLIST rem:requirementsProject 
+<!ATTLIST rem:requirementsProject
     xmlns:rem CDATA #REQUIRED
 >
 
@@ -358,7 +358,7 @@ REM 1.2 -->
 <!-- A section is a specification object with level and        -->
 <!-- number and can contain any kind of specification objetcts -->
 
-<!ELEMENT rem:section ( 
+<!ELEMENT rem:section (
     (%SpecificationObject;),
     rem:level,
     rem:number,
@@ -376,9 +376,9 @@ REM 1.2 -->
 
 <!-- A paragraph is a specification object that has some text inside -->
 
-<!ELEMENT rem:paragraph ( 
+<!ELEMENT rem:paragraph (
     (%SpecificationObject;),
-    rem:text 
+    rem:text
 )>
 
 <!ATTLIST rem:paragraph %OID; >
@@ -389,7 +389,7 @@ REM 1.2 -->
 
 <!-- A glossary item is a specification object that has some text inside -->
 
-<!ELEMENT rem:glossaryItem ( 
+<!ELEMENT rem:glossaryItem (
     (%SpecificationObject;),
     rem:text
 )>
@@ -405,7 +405,7 @@ REM 1.2 -->
 
 <!ELEMENT rem:graphicFile (
     (%SpecificationObject;),
-    rem:fileName 
+    rem:fileName
 )>
 
 <!ATTLIST rem:graphicFile %OID; >
@@ -419,11 +419,11 @@ REM 1.2 -->
 <!-- An organization is a specification object -->
 <!-- that has address, telephone and fax       -->
 
-<!ELEMENT rem:organization ( 
-    (%SpecificationObject;), 
+<!ELEMENT rem:organization (
+    (%SpecificationObject;),
     rem:address,
     rem:telephone,
-    rem:fax 
+    rem:fax
 )>
 
 <!ATTLIST rem:organization %OID; >
@@ -440,7 +440,7 @@ REM 1.2 -->
 <!-- a role, and is a developer, a customer or an user -->
 <!-- and may work for some organization                -->
 
-<!ELEMENT rem:stakeholder ( 
+<!ELEMENT rem:stakeholder (
     (%SpecificationObject;),
     rem:stakeholderRole,
     rem:isDeveloper?,
@@ -460,7 +460,7 @@ REM 1.2 -->
 <!-- rem:worksFor must refer to some organization -->
 
 <!ELEMENT rem:worksFor EMPTY>
-<!ATTLIST rem:worksFor 
+<!ATTLIST rem:worksFor
     organization IDREF #REQUIRED
 >
 
@@ -471,7 +471,7 @@ REM 1.2 -->
 <!-- A meeting is a specification object that has  -->
 <!-- date, time, place, results and some attenders -->
 
-<!ELEMENT rem:meeting ( 
+<!ELEMENT rem:meeting (
     (%SpecificationObject;),
     rem:date,
     rem:time,
@@ -503,9 +503,9 @@ REM 1.2 -->
 
 <!-- An actor is a specification object that has a role -->
 
-<!ELEMENT rem:actor ( 
+<!ELEMENT rem:actor (
     (%SpecificationObject;),
-    rem:actorRole 
+    rem:actorRole
 )>
 
 <!ATTLIST rem:actor %OID; >
@@ -540,7 +540,7 @@ REM 1.2 -->
 
 <!-- An objective is a C-Requirement that has a description -->
 
-<!ELEMENT rem:objective ( 
+<!ELEMENT rem:objective (
     (%C_Requirement;),
     rem:description,
     rem:objective*
@@ -566,7 +566,7 @@ REM 1.2 -->
     rem:maximumLifeTime,
     rem:averageOcurrences,
     rem:maximumOcurrences,
-    rem:specificData* 
+    rem:specificData*
 )>
 
 <!ATTLIST rem:informationRequirement %OID; >
@@ -591,9 +591,9 @@ REM 1.2 -->
 
 <!ELEMENT rem:value %REM_TEXT; >
 
-<!ELEMENT rem:specificData ( 
+<!ELEMENT rem:specificData (
     rem:description,
-    rem:comments 
+    rem:comments
 )>
 
 <!ATTLIST rem:specificData %OID; >
@@ -607,7 +607,7 @@ REM 1.2 -->
 <!-- A constraint requirement is a C-Requirement that -->
 <!-- has a description                                -->
 
-<!ELEMENT rem:constraintRequirement ( 
+<!ELEMENT rem:constraintRequirement (
     (%C_Requirement;),
     rem:description
 )>
@@ -624,7 +624,7 @@ REM 1.2 -->
 <!-- and has a triggering event, a precondition,             -->
 <!-- a postcondition, an expected frequency and some steps   -->
 
-<!ELEMENT rem:useCase ( 
+<!ELEMENT rem:useCase (
     %C_Requirement;,
     rem:isAbstract?,
     rem:triggeringEvent,
@@ -650,12 +650,12 @@ REM 1.2 -->
 <!-- Every step of an use case has a number, may have a condition, -->
 <!-- has a system, actor o use case action and have some comments  -->
 
-<!ELEMENT rem:step ( 
+<!ELEMENT rem:step (
     rem:number,
-    rem:condition?,  
+    rem:condition?,
     ( rem:systemAction | rem:actorAction | rem:useCaseAction ),
     ( rem:stepException* ),
-    rem:comments 
+    rem:comments
 )>
 
 <!ATTLIST rem:step %OID; >
@@ -675,7 +675,7 @@ REM 1.2 -->
 )>
 
 <!ELEMENT rem:actorAction (
-    rem:description   
+    rem:description
 )>
 <!-- rem:description is already defined -->
 
@@ -708,7 +708,7 @@ REM 1.2 -->
 <!-- An functional requirement is a C-Requirement that -->
 <!-- has a description                                 -->
 
-<!ELEMENT rem:functionalRequirement ( 
+<!ELEMENT rem:functionalRequirement (
     (%C_Requirement;),
     rem:description
 )>
@@ -722,7 +722,7 @@ REM 1.2 -->
 <!-- An non functional requirement is a C-Requirement that -->
 <!-- has a description                                     -->
 
-<!ELEMENT rem:nonFunctionalRequirement ( 
+<!ELEMENT rem:nonFunctionalRequirement (
     (%C_Requirement;),
     rem:description
 )>
@@ -737,14 +737,14 @@ REM 1.2 -->
 <!-- that can be abstract and may have disjoint or   -->
 <!-- overlapping subtypes                            -->
 
-<!ELEMENT rem:objectType ( 
+<!ELEMENT rem:objectType (
     (%Type;),
     rem:component*,
     rem:isAbstract?,
     rem:disjointSubtypes?
 )>
 
-<!ATTLIST rem:objectType 
+<!ATTLIST rem:objectType
     %OID;
     supertype IDREF #IMPLIED
 >
@@ -799,10 +799,10 @@ REM 1.2 -->
 
 <!-- An invariant expression is a commented expression -->
 
-<!ELEMENT rem:invariantExpression ( 
+<!ELEMENT rem:invariantExpression (
     rem:name,
-    rem:expression, 
-    rem:comments 
+    rem:expression,
+    rem:comments
 )>
 
 <!ATTLIST rem:invariantExpression
@@ -812,7 +812,7 @@ REM 1.2 -->
 <!ELEMENT rem:expression (
     rem:natural,
     rem:ocl
-)> 
+)>
 
 <!ELEMENT rem:natural %REM_TEXT; >
 <!ELEMENT rem:ocl     %REM_TEXT; >
@@ -824,9 +824,9 @@ REM 1.2 -->
 <!-- An user defined value type is Type, i.e. a D-Requirement, -->
 <!-- with a definition                                         -->
 
-<!ELEMENT rem:userDefinedValueType ( 
+<!ELEMENT rem:userDefinedValueType (
     (%Type;),
-    rem:definition 
+    rem:definition
 )>
 
 <!ATTLIST rem:userDefinedValueType %OID;>
@@ -840,7 +840,7 @@ REM 1.2 -->
 <!-- An associationType is Type, i.e. a D-Requirement, -->
 <!-- that can be derived and has some roles            -->
 
-<!ELEMENT rem:associationType ( 
+<!ELEMENT rem:associationType (
     (%Type;),
     rem:isDerived?,
     rem:role*
@@ -901,7 +901,7 @@ REM 1.2 -->
 
 <!-- An Preconditionrem:expression is a named expression -->
 
-<!ELEMENT rem:preconditionExpression ( 
+<!ELEMENT rem:preconditionExpression (
     rem:name,
     rem:expression,
     rem:comments
@@ -913,7 +913,7 @@ REM 1.2 -->
 
 <!-- An Postconditionrem:expression is a named expression -->
 
-<!ELEMENT rem:postconditionExpression ( 
+<!ELEMENT rem:postconditionExpression (
     rem:name,
     rem:expression,
     rem:comments
@@ -925,7 +925,7 @@ REM 1.2 -->
 
 <!-- An OperationException is a named condition + expression -->
 
-<!ELEMENT rem:operationException ( 
+<!ELEMENT rem:operationException (
     rem:name,
     rem:operationCondition,
     rem:expression,
@@ -948,10 +948,10 @@ REM 1.2 -->
 
 <!-- A conflict is a SpecificationObject that has        -->
 <!-- description, solution, status, importance, urgency, -->
-<!-- description and solution and may have some          --> 
+<!-- description and solution and may have some          -->
 <!-- alternatives                                        -->
 
-<!ELEMENT rem:conflict ( 
+<!ELEMENT rem:conflict (
     (%SpecificationObject;),
     rem:description,
     rem:solution,
@@ -988,10 +988,10 @@ REM 1.2 -->
 
 <!-- A defect is a SpecificationObject that has  -->
 <!-- defectType, status, importance, urgency,    -->
-<!-- description and solution and may have some  --> 
+<!-- description and solution and may have some  -->
 <!-- alternatives                                -->
 
-<!ELEMENT rem:defect ( 
+<!ELEMENT rem:defect (
     (%SpecificationObject;),
     rem:description,
     rem:solution,
@@ -1017,7 +1017,7 @@ REM 1.2 -->
 <!-- that has status, importance, urgency,       -->
 <!-- description and analysis                    -->
 
-<!ELEMENT rem:changeRequest ( 
+<!ELEMENT rem:changeRequest (
     (%SpecificationObject;),
     rem:description,
     rem:analysis,
@@ -1036,7 +1036,7 @@ REM 1.2 -->
 <!-- rem:traceabilityMatrix                    -->
 <!-- ========================================= -->
 
-<!-- A traceability matrix is a SpecificationObject --> 
+<!-- A traceability matrix is a SpecificationObject -->
 <!-- that has some tr (table rows)                  -->
 
 <!ELEMENT rem:traceabilityMatrix (
@@ -1062,9 +1062,9 @@ REM 1.2 -->
     rem:predefinedValueType*
 )>
 
-<!ELEMENT rem:predefinedValueType ( 
+<!ELEMENT rem:predefinedValueType (
     (%Type;),
-    rem:definition 
+    rem:definition
 )>
 
 <!ATTLIST rem:predefinedValueType %OID;>
@@ -1074,15 +1074,15 @@ REM 1.2 -->
 <!-- ========================================= -->
 
 <!ELEMENT rem:predefinedValues (
-    ( 
+    (
       rem:changeRequestStatusValue |
       rem:conflictStatusValue      |
       rem:defectStatusValue		   |
       rem:defectTypeValue		   |
-      rem:importanceValue		   |   
+      rem:importanceValue		   |
       rem:stabilityValue		   |
-      rem:statusValue			   |   
-      rem:terminationValue		   | 
+      rem:statusValue			   |
+      rem:terminationValue		   |
       rem:timeIntervalValue		   |
       rem:timeUnitValue			   |
       rem:urgencyValue
