@@ -20,10 +20,12 @@ body {
   text-align:  justify;
 }
 
+/*
 p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+*/
 
 code {
   font-size: small;
@@ -50,8 +52,9 @@ code {
   text-align: center;
 }
 
+/* for debugging */
 #browser_info {
-  /*display: none;*/
+  display: none;
 }
 
 #project_name,
@@ -127,10 +130,6 @@ code {
 .glo p,
 .bib p {
   /* padding-left: 1.5em; */
-}
-
-.glo_link {
-
 }
 
 .info {
