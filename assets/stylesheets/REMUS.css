@@ -171,12 +171,12 @@ code {
 }
 
 .markdown {
-/*
   display: none;
-*/
+/*
   display: block;
   height: 20em;
   width: 80em;
+*/
 }
 
 table.remus_table {
