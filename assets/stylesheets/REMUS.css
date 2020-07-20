@@ -117,19 +117,18 @@ code {
   margin-bottom: 200pt;
 }
 
-.glo, .bib {
+div.glo > span,
+div.bib > span {
+  float: left;
+}
+
+div.glo p,
+div.bib p {
   padding-left: 1.5em;
 }
 
-.glo > div > p:first-child,
-.bib > div > p:first-child {
-  text-indent: -1.5em;
-  /* padding-left: 1.5em; */
-}
-
-.glo p,
-.bib p {
-  /* padding-left: 1.5em; */
+div.glo > span.glo {
+  font-weight: bold;
 }
 
 .info {
@@ -147,11 +146,7 @@ code {
   background-repeat: no-repeat;
   background-position: left top;
   min-height: 2em;
-}
-
-.info p {
-  /*margin: 0px;*/
-  margin-left: 42px;
+  padding-left: 42px;
 }
 
 .figure {
@@ -197,6 +192,7 @@ table.remus_table td {
 table.remus_table th,
 table.remus_table td {
   padding: 8px;
+  vertical-align: top;
 }
 
 table.remus_table th.name_column {
