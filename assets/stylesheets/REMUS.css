@@ -20,6 +20,13 @@ body {
   text-align:  justify;
 }
 
+@media print {
+  .pagebreak {
+      clear: both;
+      page-break-after: always;
+  }
+}
+
 /*
 p {
   margin-top: 0.5em;
