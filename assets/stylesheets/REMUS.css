@@ -136,7 +136,8 @@ div.bib > span {
 
 div.glo p,
 div.bib p {
-  padding-left: 1.5em;
+  padding-left: 2em;
+  text-indent: -2em;
 }
 
 div.glo > span.glo {
@@ -207,11 +208,6 @@ table.remus_table td {
   vertical-align: top;
 }
 
-table.remus_table p {
-  margin-top: 0em;
-  margin-bottom: 0em;
-}
-
 table.remus_table th.name_column {
   width: 100%;
 }
@@ -220,6 +216,7 @@ table.remus_table th.name_column {
 table.remus_table > thead > tr > th:first-child {
   padding-left: 12px;
   padding-right: 12px;
+  padding-bottom: 4px;
   min-width: 7em;
 }
 
@@ -230,6 +227,24 @@ table.remus_table tr > th:first-child {
 
 table.remus_table > thead > tr > th:first-child > img:first-child {
   padding-right: 0.25em;
+  vertical-align: text-bottom;
+}
+
+table.remus_table p {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+table.remus_table td ul.stakeholders,
+table.remus_table td ul.subobjectives {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  margin-left: 1em;
+  padding-left: 0em;
+}
+
+span.subobjective {
+  font-weight: bold;
 }
 
 table.organization > thead > tr,
@@ -239,3 +254,9 @@ table.meeting      > thead > tr
   background-color: lightcyan;
 }
 
+table.objective > thead > tr,
+table.actor > thead > tr,
+table.information_requirement > thead > tr
+{
+  background-color: mistyrose;
+}
