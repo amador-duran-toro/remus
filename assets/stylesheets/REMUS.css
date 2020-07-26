@@ -137,6 +137,10 @@ div.bib > span {
 div.glo p,
 div.bib p {
   padding-left: 2em;
+}
+
+div.glo p:first-child,
+div.bib p:first-child {
   text-indent: -2em;
 }
 
@@ -179,12 +183,12 @@ div.glo > span.glo {
 }
 
 .markdown {
-  display: none;
 /*
+  display: none;
+*/
   display: block;
   height: 20em;
   width: 80em;
-*/
 }
 
 table.remus_table {
@@ -212,17 +216,21 @@ table.remus_table th.name_column {
   width: 100%;
 }
 
+table.use_case th.action_column {
+  width: 100%;
+}
+
 /* first row, first column */
 table.remus_table > thead > tr > th:first-child {
   padding-left: 12px;
   padding-right: 12px;
   padding-bottom: 4px;
-  min-width: 7em;
+  min-width: 7.25em;
 }
 
 /* any row, first column */
 table.remus_table tr > th:first-child {
-  white-space: nowrap;
+  /* white-space: nowrap;*/
 }
 
 table.remus_table > thead > tr > th:first-child > img:first-child {
@@ -236,7 +244,8 @@ table.remus_table p {
 }
 
 table.remus_table td ul.stakeholders,
-table.remus_table td ul.subobjectives {
+table.remus_table td ul.subobjectives,
+table.remus_table td ul.specific_data {
   margin-top: 0em;
   margin-bottom: 0em;
   margin-left: 1em;
@@ -256,7 +265,14 @@ table.meeting      > thead > tr
 
 table.objective > thead > tr,
 table.actor > thead > tr,
-table.information_requirement > thead > tr
+table.information_requirement > thead > tr,
+table.constraint_requirement > thead > tr,
+table.use_case > thead > tr
 {
   background-color: mistyrose;
+}
+
+span.relevant_concept,
+span.triggering_event {
+  font-weight: bold;
 }
