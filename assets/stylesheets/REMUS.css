@@ -183,12 +183,12 @@ div.glo > span.glo {
 }
 
 .markdown {
-/*
   display: none;
-*/
+/*
   display: block;
   height: 20em;
   width: 80em;
+*/
 }
 
 table.remus_table {
@@ -236,6 +236,7 @@ table.remus_table tr > th:first-child {
 table.remus_table > thead > tr > th:first-child > img:first-child {
   padding-right: 0.25em;
   vertical-align: text-bottom;
+  width: 18px;
 }
 
 table.remus_table p {
@@ -274,5 +275,15 @@ table.use_case > thead > tr
 
 span.relevant_concept,
 span.triggering_event {
-  font-weight: bold;
+  /*font-weight: bold;*/
+  font-style: italic;
+}
+
+table.use_case th.step_number_column {
+  text-align: center;
+}
+
+table.use_case th.step_number {
+  text-align: center;
+  font-weight: normal;
 }
