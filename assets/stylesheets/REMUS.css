@@ -166,7 +166,8 @@ div.glo > span.glo {
   padding-left: 42px;
 }
 
-.figure {
+.figure,
+.traceability_matrix {
   text-align: center;
 }
 
@@ -174,11 +175,13 @@ div.glo > span.glo {
 
 }
 
-.figure_caption {
+.figure_caption,
+.matrix_caption {
   margin-top: 4px;
 }
 
-.figure_caption_label {
+.figure_caption_label,
+.matrix_caption_label {
   font-weight: bold;
 }
 
@@ -229,6 +232,10 @@ table.remus_table > thead > tr > th:first-child {
   min-width: 7.25em;
 }
 
+table.traceability_matrix > thead > tr > th:first-child {
+  width: 7.25em;
+}
+
 /* any row, first column */
 table.remus_table tr > th:first-child {
   /* white-space: nowrap;*/
@@ -274,6 +281,15 @@ table.functional_requirement > thead > tr,
 table.nonfunctional_requirement > thead > tr
 {
   background-color: mistyrose;
+}
+
+table.traceability_matrix {
+  margin-bottom: 1em;
+}
+
+table.traceability_matrix > thead > tr
+{
+  background-color: lightgoldenrodyellow;
 }
 
 span.relevant_concept,
