@@ -332,3 +332,12 @@ table.traceability_matrix td.trace {
   background-position: center;
 
 }
+
+table.object_type > thead > tr
+{
+  background-color: gainsboro;
+}
+
+span.class {
+  color: purple;
+}
