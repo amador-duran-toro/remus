@@ -338,6 +338,28 @@ table.object_type > thead > tr
   background-color: gainsboro;
 }
 
+div.code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 span.class {
   color: purple;
+  font-weight: bold;
+}
+
+span.code_comment {
+  font-style: italic;
+}
+
+ul.attributes {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 1.5em;
+  padding-left: 0px;
+}
+
+li.attribute {
+  list-style: none;
+  padding-left: 0px;
+  margin-left: 0px;
 }
