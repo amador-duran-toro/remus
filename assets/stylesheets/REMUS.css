@@ -268,9 +268,11 @@ table.objective > thead > tr,
 table.actor > thead > tr,
 table.information_requirement > thead > tr,
 table.constraint_requirement > thead > tr,
-table.use_case > thead > tr
+table.use_case > thead > tr,
+table.functional_requirement > thead > tr,
+table.nonfunctional_requirement > thead > tr
 {
-  background-color: mistyrose;
+  background-color: mediumaquamarine;
 }
 
 span.relevant_concept,
