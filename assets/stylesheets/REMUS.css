@@ -386,17 +386,18 @@ span.class {
 }
 
 span.code_comment {
+  color: darkgreen;
   font-style: italic;
 }
 
-ul.attributes {
+ul.properties {
   margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 1.5em;
   padding-left: 0px;
 }
 
-li.attribute {
+li.property {
   list-style: none;
   padding-left: 0px;
   margin-left: 0px;
