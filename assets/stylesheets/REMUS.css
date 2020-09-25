@@ -380,14 +380,25 @@ div.code {
   font-family: 'Courier New', Courier, monospace;
 }
 
+div.code_description {
+  /*text-indent: 2em;*/
+  padding-left: 1.25em;
+}
+
 span.class {
   color: purple;
   font-weight: bold;
 }
 
-span.code_comment {
+div.code_comment, span.code_comment {
   color: darkgreen;
   font-style: italic;
+}
+
+div.code_header {
+  /*text-indent: 2em;*/
+  padding-left: 1.5em;
+  font-weight: bold;
 }
 
 ul.properties {
