@@ -378,6 +378,7 @@ table.object_type > thead > tr
 
 div.code {
   font-family: 'Courier New', Courier, monospace;
+  font-size: 11pt;
 }
 
 div.code_description {
@@ -385,8 +386,16 @@ div.code_description {
   padding-left: 1.25em;
 }
 
-span.class {
+span.keyword {
   color: purple;
+  font-weight: bold;
+}
+
+span.abstract {
+  font-style: italic;
+}
+
+span.class_name {
   font-weight: bold;
 }
 
