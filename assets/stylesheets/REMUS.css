@@ -381,7 +381,7 @@ div.code {
   font-size: 11pt;
 }
 
-div.code_description {
+div.code_description, div.code_ocl {
   /*text-indent: 2em;*/
   padding-left: 1.25em;
 }
