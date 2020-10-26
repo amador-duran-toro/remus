@@ -49,9 +49,6 @@ function bool2space(b) {
 <!-- Global variables                              -->
 <!-- ============================================= -->
 
-<!-- Esto deberÍa ir en una hoja de estilo CSS -->
-<!-- <xsl:variable name="rem:header_background">#c8e0e0</xsl:variable> -->
-
 <!-- ======================================================== -->
 <!-- trace.gif can be codified in base64 using any converter  -->
 <!-- such as https://www.base64-image.de/                     -->
@@ -79,7 +76,7 @@ function bool2space(b) {
 
 <xsl:template name="generate_header">
     <xsl:param name="label" select="local-name()"/>
-    <xsl:param name="icon"  select="concat(local-name(),'.ico')"/>
+    <xsl:param name="icon"  select="concat(local-name(),'.png')"/>
     <xsl:param name="postfix"/>
     <xsl:param name="span"  select="1"/>
 
