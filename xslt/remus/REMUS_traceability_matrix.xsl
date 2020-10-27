@@ -3,7 +3,7 @@
 <!-- =========================================================== -->
 <!-- File    : REMUS_traceability_matrix.xsl                     -->
 <!-- Content : REM XSLT for subjects at US - traceability matrix -->
-<!-- Author  : Amador Durán Toro                                 -->
+<!-- Author  : Amador Durï¿½n Toro                                 -->
 <!-- Date    : 2020/07/28                                        -->
 <!-- Version : 3.0                                               -->
 <!-- =========================================================== -->
@@ -75,7 +75,7 @@
 
 <!-- first row, first column -->
 <xsl:template match="rem:th[not(@oid)]" mode="first_row">
-    <xsl:variable name="icon">traceabilityMatrix.ico</xsl:variable>
+    <xsl:variable name="icon">traceabilityMatrix.png</xsl:variable>
     <th class="matrix_oid">
         <img src="{concat($rem:base_url_icons,$icon)}"/>
         <xsl:text> </xsl:text>
