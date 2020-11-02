@@ -82,6 +82,7 @@
             // converter.setOption( "key", "value" );
 
             var converter = new showdown.Converter();
+            converter.setOption( "parseImgDimensions", true );
 
             // function to be used in XLST templates
             // if inline=true, all CRLF tags are replaced
