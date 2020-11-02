@@ -8,7 +8,7 @@ The executable file and the resource DLLs are relatively stable. Changes will ta
 
 ## Instalation in Linux with WINE
 
-Probably, remus can also be used in Linux with WINE following these tutorials (in Spanish):
+Probably, _remus_ can also be used in Linux with WINE following these tutorials (in Spanish):
 
 - https://davidjguru.wordpress.com/2010/05/25/rem-wine-y-winetricks/
 
