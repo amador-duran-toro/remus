@@ -3,7 +3,7 @@
 <!-- ======================================================== -->
 <!-- File    : REMUS_main.xsl                                 -->
 <!-- Content : REM XSLT for subjects at US - main file        -->
-<!-- Author  : Amador Durï¿½n Toro                              -->
+<!-- Author  : Amador Durán Toro                              -->
 <!-- Date    : 2020/04/12                                     -->
 <!-- Version : 3.0                                            -->
 <!-- ======================================================== -->
@@ -73,6 +73,7 @@
 <xsl:include href="REMUS_object_type.xsl"/>
 <xsl:include href="REMUS_value_type.xsl"/>
 <xsl:include href="REMUS_association_type.xsl"/>
+<xsl:include href="REMUS_system_operation.xsl"/>
 <xsl:include href="REMUS_conflict.xsl"/>
 <!--
     <xsl:include href="REM_Simplified_SpecificationObject.xsl"/>

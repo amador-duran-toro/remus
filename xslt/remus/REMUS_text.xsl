@@ -105,21 +105,7 @@ A varible is not used because of the escaping characters.
             <xsl:copy-of select="$processed_prefix"/>
             <xsl:value-of select="$prefix_space"/>
         </xsl:if>
-        <xsl:choose>
-            <!-- node_class and mode=inline then apply node_class to the node only -->
-            <xsl:when test="$node_class and ($mode = 'inline')">
-                <span class="{$node_class}"><xsl:apply-templates select="$node" mode="markdown"/></span>
-            </xsl:when>
-            <!-- node_class and mode!=inline then apply node_class to the whole div (see below) -->
-            <xsl:when test="$node_class and ($mode != 'inline')">
-                <!-- <div class="{$node_class}"> NOT HERE! -->
-                <xsl:apply-templates select="$node" mode="markdown"/>
-                <!-- </div> -->
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates select="$node" mode="markdown"/>
-            </xsl:otherwise>
-        </xsl:choose>
+        <xsl:apply-templates select="$node" mode="markdown"/>
         <xsl:if test="$postfix">
             <!-- <xsl:value-of select="concat($postfix_space, normalize-space($postfix))"/> -->
             <xsl:value-of select="$postfix_space"/>
@@ -129,7 +115,7 @@ A varible is not used because of the escaping characters.
 
     <xsl:choose>
         <xsl:when test="$mode = 'inline'">
-            <span id="{$_id}-html"></span>
+            <span id="{$_id}-html" class="{$node_class}"></span>
             <script>generate_markdown("<xsl:value-of select="$_id"/>",true);</script>
         </xsl:when>
         <xsl:otherwise>
