@@ -117,6 +117,16 @@
 <xsl:variable name="rem:lang_version">Version</xsl:variable>
 <xsl:variable name="rem:lang_yes">Ja</xsl:variable>
 
+<!-- new in REMUS (to be translated into German) -->
+<xsl:variable name="rem:lang_code_attributes">// attributes</xsl:variable>
+<xsl:variable name="rem:lang_code_components">// components</xsl:variable>
+<xsl:variable name="rem:lang_code_invariants">// invariants</xsl:variable>
+<xsl:variable name="rem:lang_code_roles">// roles</xsl:variable>
+<xsl:variable name="rem:lang_code_preconditions">// preconditions</xsl:variable>
+<xsl:variable name="rem:lang_code_postconditions">// postconditions</xsl:variable>
+<xsl:variable name="rem:lang_code_exception">exception</xsl:variable>
+<xsl:variable name="rem:lang_code_exceptions">// exceptions</xsl:variable>
+
 <!-- ================== -->
 <!-- General L-patterns -->
 <!-- ================== -->

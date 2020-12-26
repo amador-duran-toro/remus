@@ -62,9 +62,7 @@
         <xsl:value-of select="$operation_declaration"/>
         <xsl:text> </xsl:text>
     </span>
-    <span class="class_name">
-        <xsl:apply-templates select="rem:name" mode="code"/>
-    </span>
+    <xsl:apply-templates select="rem:name" mode="code"/>
 
     <br/>
     {<br/>
@@ -72,7 +70,7 @@
     <!-- preconditions -->
 
     <xsl:if test="rem:preconditionExpression">
-        <div class="code_comment code_header">// preconditions</div>
+        <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_preconditions"/></div>
         <ul class="properties">
             <xsl:apply-templates select="rem:preconditionExpression" mode="code"/>
         </ul>
@@ -82,19 +80,19 @@
     <!-- postconditions -->
 
     <xsl:if test="rem:postconditionExpression">
-        <div class="code_comment code_header">// postconditions</div>
+        <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_postconditions"/></div>
         <ul class="properties">
             <xsl:apply-templates select="rem:postconditionExpression" mode="code"/>
         </ul>
     </xsl:if>
 
-    <!-- invariants -->
+    <!-- exceptions -->
 
-    <xsl:if test="rem:invariantExpression">
+    <xsl:if test="rem:operationException">
         <br/>
-        <div class="code_comment code_header">// invariants</div>
+        <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_exceptions"/></div>
         <ul class="properties">
-            <xsl:for-each select="rem:invariantExpression">
+            <xsl:for-each select="rem:operationException">
                 <li id="{@oid}" class="property">
                     <xsl:apply-templates select="." mode="code"/>
                 </li>
@@ -112,7 +110,7 @@
 <!-- ==================================================== -->
 
 <xsl:template match="rem:systemOperation/rem:name">
-   <xsl:value-of select="."/>
+    <xsl:value-of select="."/>
     <xsl:choose>
         <xsl:when test="not(../rem:parameter)">()</xsl:when>
         <xsl:otherwise>(
@@ -127,7 +125,7 @@
 </xsl:template>
 
 <xsl:template match="rem:systemOperation/rem:name" mode="code">
-    <xsl:value-of select="."/>
+    <span class="class_name"><xsl:value-of select="."/><xsl:text> </xsl:text></span>
     <!-- attributes -->
     <xsl:choose>
         <xsl:when test="not(../rem:parameter)">()</xsl:when>
@@ -178,26 +176,73 @@
 <!-- =========================================================================== -->
 
 <xsl:template match="rem:preconditionExpression|rem:postconditionExpression" mode="code">
-    <xsl:if test="string-length(rem:natural)">
+    <li id="{@oid}" class="property">
+        <xsl:if test="string-length(rem:expression/rem:natural)">
+            <xsl:call-template name="generate_markdown">
+                <xsl:with-param name="prefix">/**</xsl:with-param>
+                <xsl:with-param name="postfix"> */</xsl:with-param>
+                <xsl:with-param name="node" select="rem:expression/rem:natural"/>
+                <xsl:with-param name="node_class" select="'code_comment'"/>
+                <xsl:with-param name="mode" select="'paragraph'"/>
+            </xsl:call-template>
+        </xsl:if>
+        <span class="keyword"><xsl:value-of select="substring-before(local-name(),'Expression')"/> <xsl:text> </xsl:text></span>
+        <xsl:value-of select="rem:name"/>:
+        <xsl:if test="string-length(rem:expression/rem:ocl)">
+            <xsl:call-template name="generate_markdown">
+                <xsl:with-param name="node" select="rem:expression/rem:ocl"/>
+                <xsl:with-param name="node_class" select="'code_ocl'"/>
+                <xsl:with-param name="mode" select="'paragraph'"/>
+            </xsl:call-template>
+        </xsl:if>
+    </li>
+</xsl:template>
+
+<!-- ==================================================== -->
+<!-- rem:operationException template (mode code)          -->
+<!-- ===================================================== -->
+
+<xsl:template match="rem:operationException" mode="code">
+
+    <xsl:variable name="condition_natural"  select="rem:operationCondition/rem:expression/rem:natural"/>
+    <xsl:variable name="condition_ocl"      select="rem:operationCondition/rem:expression/rem:ocl"/>
+    <xsl:variable name="expression_natural" select="rem:expression/rem:natural"/>
+    <xsl:variable name="expression_ocl"     select="rem:expression/rem:ocl"/>
+    <xsl:variable name="condition"          select="concat($condition_natural,', ', expression_natural)"/>
+
+    <xsl:if test="string-length($condition_natural) or string-length($expression_natural)">
         <xsl:call-template name="generate_markdown">
-            <xsl:with-param name="prefix">/**</xsl:with-param>
-            <xsl:with-param name="postfix"> */</xsl:with-param>
-            <xsl:with-param name="node" select="rem:natural"/>
+            <xsl:with-param name="prefix">/** when </xsl:with-param>
+            <xsl:with-param name="postfix">
+            */</xsl:with-param>
+            <xsl:with-param name="node" select="$condition"/>
             <xsl:with-param name="node_class" select="'code_comment'"/>
             <xsl:with-param name="mode" select="'paragraph'"/>
         </xsl:call-template>
     </xsl:if>
-    <span class="keyword"><xsl:value-of select="substring-before(local-name(),'Expression')"/> <xsl:text> </xsl:text></span>
+    <span class="keyword"><xsl:value-of select="$rem:lang_code_exception"/> <xsl:text> </xsl:text></span>
     <xsl:value-of select="rem:name"/>:
-    <xsl:if test="string-length(rem:ocl)">
+
+    <xsl:if test="string-length(rem:operationCondition/rem:expression/rem:ocl)">
         <xsl:call-template name="generate_markdown">
-            <xsl:with-param name="node" select="rem:ocl"/>
+            <!-- <xsl:with-param name="prefix">when </xsl:with-param> -->
+            <xsl:with-param name="node" select="rem:operationCondition/rem:expression/rem:ocl"/>
+            <xsl:with-param name="node_class" select="'code_ocl'"/>
+            <xsl:with-param name="mode" select="'paragraph'"/>
+        </xsl:call-template>
+    </xsl:if>
+
+
+
+
+    <xsl:if test="string-length(rem:expression/rem:ocl)">
+        <xsl:call-template name="generate_markdown">
+            <xsl:with-param name="node" select="rem:expression/rem:ocl"/>
             <xsl:with-param name="node_class" select="'code_ocl'"/>
             <xsl:with-param name="mode" select="'paragraph'"/>
         </xsl:call-template>
     </xsl:if>
 </xsl:template>
-
 
 
 </xsl:stylesheet>

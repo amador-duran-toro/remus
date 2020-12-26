@@ -128,7 +128,7 @@
     <!-- attributes -->
 
     <xsl:if test="rem:attribute">
-        <div class="code_comment code_header">// attributes</div>
+        <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_attributes"/></div>
         <ul class="properties">
             <xsl:apply-templates select="rem:attribute" mode="code"/>
         </ul>
@@ -138,7 +138,7 @@
 
     <xsl:if test="rem:component">
         <br/>
-        <div class="code_comment code_header">// components</div>
+        <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_components"/></div>
         <ul class="properties">
             <xsl:apply-templates select="rem:component" mode="code"/>
         </ul>
@@ -148,7 +148,7 @@
 
     <xsl:if test="rem:invariantExpression">
         <br/>
-        <div class="code_comment code_header">// invariants</div>
+        <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_invariants"/></div>
         <ul class="properties">
             <xsl:for-each select="rem:invariantExpression">
                 <li id="{@oid}" class="property">
