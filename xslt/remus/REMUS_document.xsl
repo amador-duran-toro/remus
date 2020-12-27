@@ -31,7 +31,6 @@
 >
     <!-- <!doctype html> -->
     <xsl:text disable-output-escaping='yes'>&lt;!doctype html&gt;&#xa;</xsl:text>
-    <!-- <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;&#xa;</xsl:text> -->
 
     <html lang="{$rem:lang}">
 
@@ -40,8 +39,6 @@
         <meta charset="iso-8859-1"/>
         <meta name="generatedBy" content="REMUS (REM 1.3)"/>
 
-        <!-- TODO: incrustar CSS aquí o usar el CDN de github -->
-        <!-- <link rel="stylesheet" href="D:\REM 1.3\xml\css\REMUS.css" /> -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amador-duran-toro/remus/assets/stylesheets/remus.css"/>
 
         <title>
@@ -69,10 +66,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.5/es6-sham.min.js"></script>
         -->
 
-        <!-- TODO: usar el CDN de showdown -->
+        <!-- TODO: usar el CDN de github -->
         <!-- "https://github.com/showdownjs/showdown" -->
         <!-- "https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax" -->
-        <!-- <script src="D:\REM 1.3\REM.github\assets\javascripts\showdown_1_0_2.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.0.2/showdown.js"></script>
 
         <script>
@@ -204,9 +200,6 @@
         <!-- jQueryUI 1.12.1, although the latter is not used.        -->
         <!-- ======================================================== -->
 
-        <!-- TODO: usar el CDN de jQuery y jQueryUI (si lo uso) -->
-        <!-- <script src="D:\REM 1.3\REM.github\assets\javascripts\jquery-1.12.4.min.js"></script> -->
-        <!-- <script src="D:\REM 1.3\REM.github\assets\javascripts\jquery-ui-1.12.1.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
         <script>
@@ -265,7 +258,6 @@
         </script>
 
         <!-- shim for min-width in IE7 -->
-        <!-- TODO: incrustar CSS aquí o usar el CDN de github -->
         <script src="https://cdn.jsdelivr.net/gh/amador-duran-toro/remus/assets/javascripts/ie7-shim-min-width.js"></script>
         <script>
             fixMinWidthForIE();

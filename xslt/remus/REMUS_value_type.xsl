@@ -84,19 +84,13 @@
 
             <!-- invariants -->
             <xsl:if test="rem:invariantExpression">
-                <!-- <br/> -->
-                <!-- <div class="code_comment code_header">// invariants</div> -->
+                <br/>
+                <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_invariants"/></div>
                 <ul class="properties">
-                    <xsl:for-each select="rem:invariantExpression">
-                        <li id="{@oid}" class="property">
-                            <xsl:apply-templates select="." mode="code"/>
-                        </li>
-                        <xsl:if test="position() != last()">
-                            <!-- <br/> -->
-                        </xsl:if>
-                    </xsl:for-each>
+                    <xsl:apply-templates select="rem:invariantExpression" mode="code"/>
                 </ul>
             </xsl:if>
+
             }
         </xsl:when>
 

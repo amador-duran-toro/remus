@@ -150,14 +150,7 @@
         <br/>
         <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_invariants"/></div>
         <ul class="properties">
-            <xsl:for-each select="rem:invariantExpression">
-                <li id="{@oid}" class="property">
-                    <xsl:apply-templates select="." mode="code"/>
-                </li>
-                <xsl:if test="position() != last()">
-                    <!-- <br/> -->
-                </xsl:if>
-            </xsl:for-each>
+            <xsl:apply-templates select="rem:invariantExpression" mode="code"/>
         </ul>
     </xsl:if>
     }
@@ -169,15 +162,19 @@
 
 <xsl:template match="rem:attribute|rem:component|rem:role" mode="code">
     <li id="{@oid}" class="property">
-    <xsl:if test="string-length(rem:description)">
-        <xsl:call-template name="generate_markdown">
-            <xsl:with-param name="prefix">/**</xsl:with-param>
-            <xsl:with-param name="postfix"> */</xsl:with-param>
-            <xsl:with-param name="node" select="rem:description"/>
-            <xsl:with-param name="node_class" select="'code_comment'"/>
-            <xsl:with-param name="mode" select="'paragraph'"/>
-        </xsl:call-template>
-    </xsl:if>
+    <!-- TODO: the code for rem:description is common to other templates -->
+    <xsl:choose>
+        <xsl:when test="string-length(rem:description)">
+            <xsl:call-template name="generate_markdown">
+                <xsl:with-param name="prefix">/**</xsl:with-param>
+                <xsl:with-param name="postfix"> */</xsl:with-param>
+                <xsl:with-param name="node" select="rem:description"/>
+                <xsl:with-param name="node_class" select="'code_comment'"/>
+                <xsl:with-param name="mode" select="'paragraph'"/>
+            </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise><br/></xsl:otherwise>
+    </xsl:choose>
     <span class="keyword">
         <xsl:choose>
             <xsl:when test="rem:isConstant">const </xsl:when>
@@ -209,24 +206,29 @@
 <!-- =================================== -->
 
 <xsl:template match="rem:invariantExpression" mode="code">
-    <xsl:if test="string-length(rem:expression/rem:natural)">
-        <xsl:call-template name="generate_markdown">
-            <xsl:with-param name="prefix">/**</xsl:with-param>
-            <xsl:with-param name="postfix"> */</xsl:with-param>
-            <xsl:with-param name="node" select="rem:expression/rem:natural"/>
-            <xsl:with-param name="node_class" select="'code_comment'"/>
-            <xsl:with-param name="mode" select="'paragraph'"/>
-        </xsl:call-template>
-    </xsl:if>
-    <span class="keyword">invariant </span>
-    <xsl:value-of select="rem:name"/>:
-    <xsl:if test="string-length(rem:expression/rem:ocl)">
-        <xsl:call-template name="generate_markdown">
-            <xsl:with-param name="node" select="rem:expression/rem:ocl"/>
-            <xsl:with-param name="node_class" select="'code_ocl'"/>
-            <xsl:with-param name="mode" select="'paragraph'"/>
-        </xsl:call-template>
-    </xsl:if>
+    <li id="{@oid}" class="property">
+        <xsl:choose>
+            <xsl:when test="string-length(rem:expression/rem:natural)">
+                <xsl:call-template name="generate_markdown">
+                    <xsl:with-param name="prefix">/**</xsl:with-param>
+                    <xsl:with-param name="postfix"> */</xsl:with-param>
+                    <xsl:with-param name="node" select="rem:expression/rem:natural"/>
+                    <xsl:with-param name="node_class" select="'code_comment'"/>
+                    <xsl:with-param name="mode" select="'paragraph'"/>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise><br/></xsl:otherwise>
+        </xsl:choose>
+        <span class="keyword">invariant </span>
+        <xsl:value-of select="rem:name"/>:
+        <xsl:if test="string-length(rem:expression/rem:ocl)">
+            <xsl:call-template name="generate_markdown">
+                <xsl:with-param name="node" select="rem:expression/rem:ocl"/>
+                <xsl:with-param name="node_class" select="'code_ocl'"/>
+                <xsl:with-param name="mode" select="'paragraph'"/>
+            </xsl:call-template>
+        </xsl:if>
+    </li>
 </xsl:template>
 
 </xsl:stylesheet>

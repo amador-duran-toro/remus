@@ -76,7 +76,13 @@ A varible is not used because of the escaping characters.
 <!-- using msxsl:node-set($prefix).                           -->
 <!-- ======================================================== -->
 
+<!-- oid parama is added for those situations in which more than -->
+<!-- one markdown text must be generated for elements with the   -->
+<!-- same local-name() under the same ancestor.                  -->
+<!-- This is the case in rem:operationException                  -->
+
 <xsl:template name="generate_markdown">
+    <xsl:param name="oid" select="@oid"/>
     <xsl:param name="node" />
     <xsl:param name="node_class" />
     <xsl:param name="prefix"  />
@@ -85,7 +91,7 @@ A varible is not used because of the escaping characters.
     <xsl:param name="space_before_postfix" select="false()"/>
     <xsl:param name="mode" select="'inline'"/>
 
-    <xsl:variable name="_id" select="concat(@oid,'-',local-name($node))"/>
+    <xsl:variable name="_id" select="concat($oid,'-',local-name($node))"/>
     <xsl:variable name="prefix_space" select="rem:bool2space($space_after_prefix)"/>
     <xsl:variable name="postfix_space" select="rem:bool2space($space_before_postfix)"/>
 
