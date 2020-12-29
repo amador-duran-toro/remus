@@ -28,15 +28,57 @@
 
             <xsl:call-template name="generate_expanded_header"/>
 
-            <xsl:call-template name="generate_simple_row">
-                <xsl:with-param name="label"   select="$rem:lang_directly_affected_objects"/>
-                <xsl:with-param name="content" select="rem:directlyAffects/@affected"/>
-            </xsl:call-template>
+            <!-- directly affected objects -->
+            <tr>
+                <th>
+                    <xsl:value-of select="$rem:lang_directly_affected_objects"/>
+                </th>
 
-            <xsl:call-template name="generate_simple_row">
-                <xsl:with-param name="label"   select="$rem:lang_indirectly_affected_objects"/>
-                <xsl:with-param name="content" select="rem:indirectlyAffects/@affected"/>
-            </xsl:call-template>
+                <td>
+                    <xsl:choose>
+                        <xsl:when test="not(rem:directlyAffects)">
+                            <span class="tbd"><xsl:value-of select="$rem:lang_TBD"/></span>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <ul class="specific_data">
+                                <xsl:for-each select="id(rem:directlyAffects/@affected)">
+                                    <li>
+                                        <a href="#{@oid}">
+                                            [<xsl:value-of select="@oid"/>] <xsl:value-of select="rem:name"/>
+                                        </a>
+                                    </li>
+                                </xsl:for-each>
+                            </ul>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </td>
+            </tr>
+
+            <!-- indirectly affected objects -->
+            <tr>
+                <th>
+                    <xsl:value-of select="$rem:lang_indirectly_affected_objects"/>
+                </th>
+
+                <td>
+                    <xsl:choose>
+                        <xsl:when test="not(rem:indirectlyAffects)">
+                            <span class="tbd"><xsl:value-of select="$rem:lang_TBD"/></span>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <ul class="specific_data">
+                                <xsl:for-each select="id(rem:indirectlyAffects/@affected)">
+                                    <li>
+                                        <a href="#{@oid}">
+                                            [<xsl:value-of select="@oid"/>] <xsl:value-of select="rem:name"/>
+                                        </a>
+                                    </li>
+                                </xsl:for-each>
+                            </ul>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </td>
+            </tr>
 
             <xsl:call-template name="generate_markdown_row">
                 <xsl:with-param name="label"   select="$rem:lang_description"/>
