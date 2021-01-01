@@ -40,7 +40,7 @@
                             <span class="tbd"><xsl:value-of select="$rem:lang_TBD"/></span>
                         </xsl:when>
                         <xsl:otherwise>
-                            <ul class="specific_data">
+                            <ul class="affected_objects">
                                 <xsl:for-each select="id(rem:directlyAffects/@affected)">
                                     <li>
                                         <a href="#{@oid}">
@@ -66,7 +66,7 @@
                             <span class="tbd"><xsl:value-of select="$rem:lang_TBD"/></span>
                         </xsl:when>
                         <xsl:otherwise>
-                            <ul class="specific_data">
+                            <ul class="affected_objects">
                                 <xsl:for-each select="id(rem:indirectlyAffects/@affected)">
                                     <li>
                                         <a href="#{@oid}">
