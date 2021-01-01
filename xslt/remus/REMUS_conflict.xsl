@@ -101,7 +101,7 @@
                     </th>
 
                     <td>
-                        <ol>
+                        <ol class="alternatives">
                             <xsl:apply-templates select="rem:alternative"/>
                         </ol>
                     </td>

@@ -434,6 +434,17 @@ span.alternative_name {
   font-weight: bold;
 }
 
+table.remus_table td ol.alternatives {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  margin-left: 1.5em;
+  padding-left: 0em;
+}
+
+table.remus_table td ol.alternatives li.alternative {
+  margin-bottom: 1em;
+}
+
 .alternative_description {
   font-style: italic;
 }

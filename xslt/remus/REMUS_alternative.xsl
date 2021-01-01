@@ -23,10 +23,12 @@
 <!-- ============================== -->
 
 <xsl:template match="rem:alternative">
-    <li id="{@oid}">
+    <li id="{@oid}" class="alternative">
         <span class="alternative_name"><xsl:apply-templates select="rem:name"/></span>
         <xsl:if test="rem:authors">
-            (<xsl:apply-templates select="rem:authors"/>)
+            (<xsl:for-each select="id(rem:authors/@stakeholders)">
+                <a href="#{@oid}"><xsl:apply-templates select="rem:name"/></a><xsl:if test="not(position()=last())">, </xsl:if>
+            </xsl:for-each>)
         </xsl:if>
         <xsl:call-template name="generate_markdown">
             <xsl:with-param name="node" select="rem:description"/>
