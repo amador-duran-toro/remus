@@ -39,6 +39,7 @@
         <meta charset="iso-8859-1"/>
         <meta name="generatedBy" content="REMUS (REM 1.3)"/>
 
+        <!-- <link rel="stylesheet" href="https://raw.githubusercontent.com/amador-duran-toro/remus/master/assets/stylesheets/remus.css"/> -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amador-duran-toro/remus/assets/stylesheets/remus.css"/>
 
         <title>

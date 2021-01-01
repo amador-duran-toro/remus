@@ -301,38 +301,6 @@ function bool2space(b) {
     <xsl:value-of select="format-number(rem:hour,'00')"/>:<xsl:value-of select="format-number(rem:minute,'00')"/>
 </xsl:template>
 
-<!-- De aquí para abajo, es legacy code -->
-
-<!-- ============================================= -->
-<!-- GenerateRow                                   -->
-<!-- ============================================= -->
-
-<xsl:template name="GenerateRow">
-    <xsl:param name="title"/>
-    <xsl:param name="node" select="/.."/>
-    <xsl:param name="span">1</xsl:param>
-    <tr>
-        <th><xsl:value-of select="$title"/></th>
-        <td>
-            <xsl:if test="$title = $rem:lang_comments">
-              <xsl:attribute name="class">comment</xsl:attribute>
-            </xsl:if>
-            <xsl:attribute name="colspan"><xsl:value-of select="$span"/></xsl:attribute>
-            <!-- Parece que hay problemas con esta expresión -->
-            <xsl:value-of select="$node"/>
-            <!-- <xsl:apply-templates select="$node"/> -->
-        </td>
-    </tr>
-</xsl:template>
-
-<!-- ============================================= -->
-<!-- GenerateAnchor                                -->
-<!-- ============================================= -->
-
-<xsl:template name="GenerateAnchor">
-  <a name="{@oid}"/>
-</xsl:template>
-
 <!-- Puede que esto ya no sea necesario porque no hay que meter HTML en un atributo -->
 
 <!-- ============================================= -->

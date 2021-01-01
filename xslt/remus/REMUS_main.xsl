@@ -56,6 +56,7 @@
 <xsl:include href="REMUS_cover.xsl"/>
 <xsl:include href="REMUS_document.xsl"/>
 <xsl:include href="REMUS_section.xsl"/>
+<xsl:include href="REMUS_appendix.xsl"/>
 <xsl:include href="REMUS_paragraph.xsl"/>
 <xsl:include href="REMUS_glossary_item.xsl"/>
 <xsl:include href="REMUS_graphic_file.xsl"/>
@@ -74,6 +75,7 @@
 <xsl:include href="REMUS_value_type.xsl"/>
 <xsl:include href="REMUS_association_type.xsl"/>
 <xsl:include href="REMUS_system_operation.xsl"/>
+<xsl:include href="REMUS_alternative.xsl"/>
 <xsl:include href="REMUS_conflict.xsl"/>
 <!--
     <xsl:include href="REM_Simplified_SpecificationObject.xsl"/>

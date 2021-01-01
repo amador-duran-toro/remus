@@ -27,6 +27,7 @@
     <xsl:choose>
         <!-- [link] tag as the first word in paragraph's name -->
         <xsl:when test="starts-with(normalize-space(rem:name), $rem:link_tag)">
+            <a id="{@oid}"></a>
             <xsl:apply-templates select="id(rem:text)"/>
         </xsl:when>
         <xsl:otherwise>

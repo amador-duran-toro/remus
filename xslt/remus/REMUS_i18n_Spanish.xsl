@@ -22,7 +22,7 @@
 <!-- Same as default in REM 1.2.2 -->
 <xsl:variable name="rem:lang_action">Acción</xsl:variable>
 <xsl:variable name="rem:lang_address">Dirección</xsl:variable>
-<xsl:variable name="rem:lang_alternative">Alternativa</xsl:variable>
+<xsl:variable name="rem:lang_alternatives">Alternativas</xsl:variable>
 <xsl:variable name="rem:lang_analysis">Análisis</xsl:variable>
 <xsl:variable name="rem:lang_attenders">Asistentes</xsl:variable>
 <xsl:variable name="rem:lang_attribute">Atributo</xsl:variable>

@@ -19,7 +19,7 @@
     exclude-result-prefixes="rem"
 >
 <!-- ============================================= -->
-<!-- rem:conflict template                     -->
+<!-- rem:conflict template                         -->
 <!-- ============================================= -->
 
 <xsl:template match="rem:conflict">
@@ -92,10 +92,21 @@
                 <xsl:with-param name="mode"    select="'paragraph'"/>
             </xsl:call-template>
 
-            <xsl:call-template name="generate_simple_row">
-                <xsl:with-param name="label"   select="$rem:lang_alternative"/>
-                <xsl:with-param name="content" select="rem:alternative/rem:name"/>
-            </xsl:call-template>
+            <!-- alternatives -->
+
+            <xsl:if test="rem:alternative">
+                <tr>
+                    <th>
+                        <xsl:value-of select="$rem:lang_alternatives"/>
+                    </th>
+
+                    <td>
+                        <ol>
+                            <xsl:apply-templates select="rem:alternative"/>
+                        </ol>
+                    </td>
+                </tr>
+            </xsl:if>
 
             <xsl:call-template name="generate_priority_rows"/>
             <xsl:call-template name="generate_comments_row"/>

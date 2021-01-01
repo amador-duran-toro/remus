@@ -430,6 +430,14 @@ li.property {
 
 /*  management objects */
 
+span.alternative_name {
+  font-weight: bold;
+}
+
+.alternative_description {
+  font-style: italic;
+}
+
 table.conflict > thead > tr
 {
   /*color: white;*/
