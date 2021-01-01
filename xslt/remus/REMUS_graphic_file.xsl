@@ -53,7 +53,14 @@
             <span class="figure_caption_label">
                 <xsl:value-of select="$rem:lang_figure"/>
                 <xsl:text> </xsl:text>
-                <xsl:number level="any"/>:<!-- important to avoid restarting numbering in each section -->
+                <!-- from is needed to restart numbering in each document          -->
+                <!-- level is needed to avoid restarting numbering in each section -->
+                <xsl:number
+                    from="rem:c_requirementsSpecification |
+                          rem:d_requirementsSpecification |
+                          rem:defectsSpecification        |
+                          rem:changeRequestsSpecification"
+                    level="any"/>:
                 <xsl:text> </xsl:text>
             </span>
             <!-- not applying markdown -->

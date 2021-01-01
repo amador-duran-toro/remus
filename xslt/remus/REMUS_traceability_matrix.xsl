@@ -38,7 +38,14 @@
             <span class="matrix_caption_label">
                 <xsl:value-of select="$rem:lang_traceability_matrix"/>
                 <xsl:text> </xsl:text>
-                <xsl:number level="any"/>:<!-- important to avoid restarting numbering in each section -->
+                <!-- from is needed to restart numbering in each document          -->
+                <!-- level is needed to avoid restarting numbering in each section -->
+                <xsl:number
+                    from="rem:c_requirementsSpecification |
+                          rem:d_requirementsSpecification |
+                          rem:defectsSpecification        |
+                          rem:changeRequestsSpecification"
+                    level="any"/>:
                 <xsl:text> </xsl:text>
             </span>
             <!-- not applying markdown -->
@@ -89,7 +96,7 @@
 <!-- first row, rest of columns -->
 <xsl:template match="rem:th[@oid]" mode="first_row">
     <th class="matrix_column">
-        <a href="#{@oid}">
+        <a href="#{@oid}" title="{@oid} - {id(@oid)/rem:name}">
             <xsl:value-of select="@oid"/>
         </a>
     </th>
@@ -101,7 +108,7 @@
 
 <xsl:template match="rem:th[@oid]">
     <th>
-        <a href="#{@oid}">
+        <a href="#{@oid}" title="{@oid} - {id(@oid)/rem:name}">
             <xsl:value-of select="@oid"/>
         </a>
     </th>

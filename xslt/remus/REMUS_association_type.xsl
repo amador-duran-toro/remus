@@ -83,16 +83,18 @@
 
     <!-- roles -->
 
-    <div class="code_comment code_header">// roles</div>
-    <ul class="properties">
-        <xsl:apply-templates select="rem:role" mode="code"/>
-    </ul>
+    <xsl:if test="rem:role">
+        <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_roles"/></div>
+        <ul class="properties">
+            <xsl:apply-templates select="rem:role" mode="code"/>
+        </ul>
+    </xsl:if>
 
     <!-- attributes -->
 
     <xsl:if test="rem:attribute">
         <br/>
-        <div class="code_comment code_header">// attributes</div>
+        <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_attributes"/></div>
         <ul class="properties">
             <xsl:apply-templates select="rem:attribute" mode="code"/>
         </ul>
@@ -102,18 +104,12 @@
 
     <xsl:if test="rem:invariantExpression">
         <br/>
-        <div class="code_comment code_header">// invariants</div>
+        <div class="code_comment code_header"><xsl:value-of select="$rem:lang_code_invariants"/></div>
         <ul class="properties">
-            <xsl:for-each select="rem:invariantExpression">
-                <li id="{@oid}" class="property">
-                    <xsl:apply-templates select="." mode="code"/>
-                </li>
-                <xsl:if test="position() != last()">
-                    <!-- <br/> -->
-                </xsl:if>
-            </xsl:for-each>
+            <xsl:apply-templates select="rem:invariantExpression" mode="code"/>
         </ul>
     </xsl:if>
+
     }
 </xsl:template>
 

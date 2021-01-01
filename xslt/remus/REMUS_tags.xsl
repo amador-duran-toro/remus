@@ -26,6 +26,9 @@
 <!-- [PART] as the beginning of paragraph names -->
 <xsl:variable name="rem:part_tag">[PART]</xsl:variable>
 
+<!-- [link] as the beginning of paragraph names -->
+<xsl:variable name="rem:link_tag">[link]</xsl:variable>
+
 <!-- [info] as part of the name of paragraphs -->
 <xsl:variable name="rem:info_tag">[info]</xsl:variable>
 

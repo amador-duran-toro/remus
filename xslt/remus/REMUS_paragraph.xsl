@@ -24,37 +24,45 @@
 <!-- =========================================================== -->
 
 <xsl:template match="rem:paragraph">
-    <div id="{@oid}">
     <xsl:choose>
-        <!-- [part] tag as the first word in paragraph's name -->
-        <xsl:when test="starts-with(normalize-space(rem:name), $rem:part_tag)">
-            <xsl:choose>
-                <!-- [part] paragraphs must be direct children of documents' root -->
-                <xsl:when test="local-name(../..) = 'requirementsProject'">
-                    <xsl:apply-templates select="." mode="part"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <script>
-                    warnings.push({
-                        oid: "<xsl:value-of select="@oid"/>",
-                        message:'Tagged paragraph \"<xsl:apply-templates select="rem:name"/>\": parts must be children of the document root only!'
-                    });
-                    </script>
-                </xsl:otherwise>
-            </xsl:choose>
+        <!-- [link] tag as the first word in paragraph's name -->
+        <xsl:when test="starts-with(normalize-space(rem:name), $rem:link_tag)">
+            <xsl:apply-templates select="id(rem:text)"/>
         </xsl:when>
         <xsl:otherwise>
-            <!-- [info] tag as part of the name of the paragraph -->
-            <xsl:if test="contains(rem:name,$rem:info_tag)">
-                <xsl:attribute name="class">info</xsl:attribute>
-            </xsl:if>
-            <xsl:call-template name="generate_markdown">
-                <xsl:with-param name="node" select="rem:text"/>
-                <xsl:with-param name="mode" select="'paragraph'"/>
-            </xsl:call-template>
+            <div id="{@oid}">
+                <xsl:choose>
+                    <!-- [part] tag as the first word in paragraph's name -->
+                    <xsl:when test="starts-with(normalize-space(rem:name), $rem:part_tag)">
+                        <xsl:choose>
+                            <!-- [part] paragraphs must be direct children of documents' root -->
+                            <xsl:when test="local-name(../..) = 'requirementsProject'">
+                                <xsl:apply-templates select="." mode="part"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <script>
+                                warnings.push({
+                                    oid: "<xsl:value-of select="@oid"/>",
+                                    message:'Tagged paragraph \"<xsl:apply-templates select="rem:name"/>\": parts must be children of the document root only!'
+                                });
+                                </script>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:when>
+                    <!-- [info] tag as part of the name of the paragraph -->
+                    <xsl:otherwise>
+                        <xsl:if test="contains(rem:name,$rem:info_tag)">
+                            <xsl:attribute name="class">info</xsl:attribute>
+                        </xsl:if>
+                        <xsl:call-template name="generate_markdown">
+                            <xsl:with-param name="node" select="rem:text"/>
+                            <xsl:with-param name="mode" select="'paragraph'"/>
+                        </xsl:call-template>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </div>
         </xsl:otherwise>
     </xsl:choose>
-    </div>
 </xsl:template>
 
 <!-- =========================================================== -->
