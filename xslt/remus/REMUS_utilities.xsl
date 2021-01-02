@@ -59,7 +59,7 @@ function bool2space(b) {
 <xsl:variable name="rem:infoImage">info_icon_small.png</xsl:variable>
 
 <!-- Base URL for icons -->
-<xsl:variable name="rem:base_url_icons">https://cdn.jsdelivr.net/gh/amador-duran-toro/remus/assets/images/icons/</xsl:variable>
+<xsl:variable name="rem:base_url_icons">https://cdn.jsdelivr.net/gh/amador-duran-toro/remus@master/assets/images/icons/</xsl:variable>
 
 <!-- ============================================= -->
 <!-- rem:pagebreak template                        -->
