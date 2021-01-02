@@ -255,7 +255,8 @@ table.remus_table tr > th:first-child {
 }
 
 /* icon on the first row, first column */
-table.remus_table > thead > tr > th:first-child > img:first-child {
+table.remus_table > thead > tr > th:first-child > img:first-child,
+table.remus_table > thead > tr th img {
   padding-right: 0.25em;
   vertical-align: text-bottom;
   width: 18px;
@@ -454,5 +455,4 @@ table.conflict > thead > tr,
 table.defect > thead > tr
 {
   /*color: white;*/
-  background-color: lightcoral;
-}
+  background-color: pink;

@@ -123,7 +123,8 @@
     <xsl:apply-templates/>
     <xsl:if test="../rem:defectType/@value">
         (<xsl:value-of select="id(../rem:defectType/@value)/rem:name"/>
-         <img src="{concat($rem:base_url_icons,$rem:infoImage)}">
+         <xsl:text> </xsl:text>
+         <img src="{concat($rem:base_url_icons,$rem:infoImage)}" width="16px">
             <xsl:attribute name="title">
                 <xsl:value-of select="id(../rem:defectType/@value)/rem:description"/>
             </xsl:attribute>
