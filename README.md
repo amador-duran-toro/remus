@@ -1,4 +1,4 @@
-# REquirements Manager - Universidad de Sevilla - REMUS (REM 1.3)
+# REquirements Manager - Universidad de Sevilla - REMUS
 
 Repository for the Windows binary distribution of _REMUS_ (_REquirements Manager_ - Universidad de Sevilla) for beta testers.
 
