@@ -39,7 +39,8 @@
         <meta charset="iso-8859-1"/>
         <meta name="generatedBy" content="REMUS (REM 1.3)"/>
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amador-duran-toro/remus@master/assets/stylesheets/remus.css"/>
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amador-duran-toro/remus@master/assets/stylesheets/remus.css"/> -->
+        <link rel="stylesheet" href="../assets/stylesheets/remus.css"/>
 
         <title>
             <xsl:value-of select="$rem:lang_project"/>
@@ -78,6 +79,7 @@
             // converter.setOption( "key", "value" );
 
             var converter = new showdown.Converter();
+            // option not supported in Showdown 1.0.2
             converter.setOption( "parseImgDimensions", true );
 
             // function to be used in XLST templates

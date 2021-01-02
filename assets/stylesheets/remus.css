@@ -450,7 +450,8 @@ table.remus_table td ol.alternatives li.alternative {
   font-style: italic;
 }
 
-table.conflict > thead > tr
+table.conflict > thead > tr,
+table.defect > thead > tr
 {
   /*color: white;*/
   background-color: lightcoral;
