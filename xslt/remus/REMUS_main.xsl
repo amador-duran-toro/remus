@@ -78,6 +78,7 @@
 <xsl:include href="REMUS_alternative.xsl"/>
 <xsl:include href="REMUS_conflict.xsl"/>
 <xsl:include href="REMUS_defect.xsl"/>
+<xsl:include href="REMUS_change_request.xsl"/>
 <!--
     <xsl:include href="REM_Simplified_SpecificationObject.xsl"/>
 
