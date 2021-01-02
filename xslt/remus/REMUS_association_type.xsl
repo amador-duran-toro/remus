@@ -24,8 +24,8 @@
 <!-- ============================================== -->
 
 <xsl:template match="rem:associationType">
-    <div id="{@oid}" class="object_type">
-        <table class="object_type remus_table">
+    <div id="{@oid}" class="association_type">
+        <table class="association_type remus_table">
             <xsl:call-template name="generate_expanded_header"/>
             <tr>
                 <td colspan="2">

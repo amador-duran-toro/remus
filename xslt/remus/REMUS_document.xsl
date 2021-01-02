@@ -39,8 +39,8 @@
         <meta charset="iso-8859-1"/>
         <meta name="generatedBy" content="REMUS (REM 1.3)"/>
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amador-duran-toro/remus@master/assets/stylesheets/remus.css"/>
-        <!-- <link rel="stylesheet" href="../assets/stylesheets/remus.css"/> -->
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amador-duran-toro/remus@master/assets/stylesheets/remus.css"/> -->
+        <link rel="stylesheet" href="../assets/stylesheets/remus.css"/>
 
         <title>
             <xsl:value-of select="$rem:lang_project"/>

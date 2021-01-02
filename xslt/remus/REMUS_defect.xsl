@@ -29,56 +29,10 @@
             <xsl:call-template name="generate_expanded_header"/>
 
             <!-- directly affected objects -->
-            <tr>
-                <th>
-                    <xsl:value-of select="$rem:lang_directly_affected_objects"/>
-                </th>
-
-                <td>
-                    <xsl:choose>
-                        <xsl:when test="not(rem:directlyAffects)">
-                            <span class="tbd"><xsl:value-of select="$rem:lang_TBD"/></span>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <ul class="affected_objects">
-                                <xsl:for-each select="id(rem:directlyAffects/@affected)">
-                                    <li>
-                                        <a href="#{@oid}">
-                                            [<xsl:value-of select="@oid"/>] <xsl:value-of select="rem:name"/>
-                                        </a>
-                                    </li>
-                                </xsl:for-each>
-                            </ul>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </td>
-            </tr>
+            <xsl:call-template name="generate_directly_affected_objects"/>
 
             <!-- indirectly affected objects -->
-            <tr>
-                <th>
-                    <xsl:value-of select="$rem:lang_indirectly_affected_objects"/>
-                </th>
-
-                <td>
-                    <xsl:choose>
-                        <xsl:when test="not(rem:indirectlyAffects)">
-                            <span class="tbd"><xsl:value-of select="$rem:lang_TBD"/></span>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <ul class="affected_objects">
-                                <xsl:for-each select="id(rem:indirectlyAffects/@affected)">
-                                    <li>
-                                        <a href="#{@oid}">
-                                            [<xsl:value-of select="@oid"/>] <xsl:value-of select="rem:name"/>
-                                        </a>
-                                    </li>
-                                </xsl:for-each>
-                            </ul>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </td>
-            </tr>
+            <xsl:call-template name="generate_indirectly_affected_objects"/>
 
             <xsl:call-template name="generate_markdown_row">
                 <xsl:with-param name="label"   select="$rem:lang_description"/>
@@ -93,20 +47,7 @@
             </xsl:call-template>
 
             <!-- alternatives -->
-
-            <xsl:if test="rem:alternative">
-                <tr>
-                    <th>
-                        <xsl:value-of select="$rem:lang_alternatives"/>
-                    </th>
-
-                    <td>
-                        <ol class="alternatives">
-                            <xsl:apply-templates select="rem:alternative"/>
-                        </ol>
-                    </td>
-                </tr>
-            </xsl:if>
+            <xsl:call-template name="generate_alternatives"/>
 
             <xsl:call-template name="generate_priority_rows"/>
             <xsl:call-template name="generate_comments_row"/>
@@ -124,7 +65,7 @@
     <xsl:if test="../rem:defectType/@value">
         (<xsl:value-of select="id(../rem:defectType/@value)/rem:name"/>
          <xsl:text> </xsl:text>
-         <img src="{concat($rem:base_url_icons,$rem:infoImage)}" width="16px">
+         <img src="{concat($rem:base_url_icons,$rem:infoImage)}" class="info_icon" width="16px">
             <xsl:attribute name="title">
                 <xsl:value-of select="id(../rem:defectType/@value)/rem:description"/>
             </xsl:attribute>

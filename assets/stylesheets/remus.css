@@ -255,8 +255,7 @@ table.remus_table tr > th:first-child {
 }
 
 /* icon on the first row, first column */
-table.remus_table > thead > tr > th:first-child > img:first-child,
-table.remus_table > thead > tr th img {
+table.remus_table > thead > tr > th:first-child > img:first-child
   padding-right: 0.25em;
   vertical-align: text-bottom;
   width: 18px;
@@ -378,7 +377,10 @@ table.traceability_matrix td.trace {
 
 /*  modeling objects */
 
-table.object_type > thead > tr
+table.object_type > thead > tr,
+table.value_type > thead > tr,
+table.association_type > thead > tr,
+table.system_operation > thead > tr
 {
   background-color: gainsboro;
 }
@@ -456,3 +458,12 @@ table.defect > thead > tr
 {
   /*color: white;*/
   background-color: pink;
+}
+
+/* information icon in defect table header */
+table.defect > thead > tr th img.info_icon {
+  padding-right: 0em;
+  vertical-align: text-bottom;
+  width: 18px;
+}
+

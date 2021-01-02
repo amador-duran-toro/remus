@@ -24,8 +24,8 @@
 <!-- ============================================== -->
 
 <xsl:template match="rem:userDefinedValueType">
-    <div id="{@oid}" class="object_type">
-        <table class="object_type remus_table">
+    <div id="{@oid}" class="value_type">
+        <table class="value_type remus_table">
             <xsl:call-template name="generate_expanded_header"/>
             <tr>
                 <td colspan="2">

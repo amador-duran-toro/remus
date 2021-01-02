@@ -24,8 +24,8 @@
 <!-- ============================================== -->
 
 <xsl:template match="rem:systemOperation">
-    <div id="{@oid}" class="object_type">
-        <table class="object_type remus_table">
+    <div id="{@oid}" class="system_operation">
+        <table class="system_operation remus_table">
             <xsl:call-template name="generate_expanded_header"/>
             <tr>
                 <td colspan="2">
