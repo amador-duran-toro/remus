@@ -123,6 +123,7 @@
         <xsl:choose>
             <xsl:when test="@mark='yes'">
                 <xsl:attribute name="class">trace</xsl:attribute>
+                <img class="trace" src="{$rem:traceImage}"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:text>-</xsl:text>

@@ -27,6 +27,14 @@
     <xsl:choose>
         <!-- [link] tag as the first word in paragraph's name -->
         <xsl:when test="starts-with(normalize-space(rem:name), $rem:link_tag)">
+            <xsl:if test="(local-name(id(rem:text)) = 'section') or (local-name(id(rem:text)) = 'appendix')">
+                <script>
+                warnings.push({
+                    oid: "<xsl:value-of select="@oid"/>",
+                    message:'Tagged paragraph \"<xsl:apply-templates select="rem:name"/>\": links must not refer to sections or appendices!'
+                });
+                </script>
+            </xsl:if>
             <a id="{@oid}"></a>
             <xsl:apply-templates select="id(rem:text)"/>
         </xsl:when>

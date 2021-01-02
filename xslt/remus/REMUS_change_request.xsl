@@ -41,8 +41,8 @@
             </xsl:call-template>
 
             <xsl:call-template name="generate_markdown_row">
-                <xsl:with-param name="label"   select="$rem:lang_possible_solution"/>
-                <xsl:with-param name="content" select="rem:solution"/>
+                <xsl:with-param name="label"   select="$rem:lang_analysis"/>
+                <xsl:with-param name="content" select="rem:analysis"/>
                 <xsl:with-param name="mode"    select="'paragraph'"/>
             </xsl:call-template>
 
