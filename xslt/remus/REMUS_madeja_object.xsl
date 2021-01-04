@@ -54,7 +54,7 @@ function getMadejaName(s) {
 <xsl:template match="rem:glossaryItem[rem:isMadejaObject(string(normalize-space(rem:name)))]">
     <xsl:variable name="name" select="string(normalize-space(rem:name))"/>
     <xsl:variable name="label" select="rem:isMadejaObject($name)"/>
-    <xsl:variable name="icon" select="concat('madeja_',rem:toLowerCase(rem:getMadejaPrefix($name)))"/>
+    <xsl:variable name="icon" select="concat('madeja_',rem:toLowerCase(rem:getMadejaPrefix($name)),'.png')"/>
 
     <div id="{@oid}">
         <table class="madeja_object remus_table">
