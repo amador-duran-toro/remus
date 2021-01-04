@@ -19,6 +19,11 @@
     exclude-result-prefixes="rem"
 >
 
+<!-- it is a MADEJA object -->
+<xsl:template match="rem:glossaryItem[rem:isMadejaObject(string(rem:name))]">
+    <div>isMadejaObject(<xsl:value-of select="string(rem:name)"/>) = <xsl:value-of select="rem:isMadejaObject(string(rem:name))"/></div>
+</xsl:template>
+
 <!-- =========================================================== -->
 <!-- rem:glossaryItem template                                   -->
 <!-- =========================================================== -->

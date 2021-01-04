@@ -102,7 +102,7 @@
 
                 var md_text = md_container.value;
 
-                md_container.value = "remus_text = " + md_text; // for debugging
+                //md_container.value = "remus_text = " + md_text; // for debugging
 
                 // Simple text replace can be performed using split and join faster
                 // than using replace with a regular expression as described in:
@@ -136,7 +136,7 @@
                     md_text = md_text.split( crlf_tag ).join( newline );
                 }
 
-                md_container.value += "\n\nmd_text = " + md_text; // for debugging
+                //md_container.value += "\n\nmd_text = " + md_text; // for debugging
 
                 // Don't get rid of enclosing <p>...</p> in paragraph mode,
                 // double \n inside markdown will close the first <p> generating an
@@ -156,7 +156,7 @@
                     }
                 }
 
-                md_container.value += ("\n\nhtml_text = " + html_text); // for debugging
+                //md_container.value += ("\n\nhtml_text = " + html_text); // for debugging
 
                 html_container.innerHTML = html_text;
             }

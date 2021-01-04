@@ -42,6 +42,13 @@ function toLowerCase(s) {
 function bool2space(b) {
     return b ? ' ' : '';
 }
+
+// https://regexr.com/
+function isMadejaObject(s) {
+    var regexp = /^\[(FOR|DEB|ANA|PNA|HU)-(\d+)\]/;
+
+    return regexp.test(s) ? RegExp.$1 : false;
+}
 ]]>
 </msxsl:script>
 
