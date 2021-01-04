@@ -82,29 +82,5 @@
 <xsl:include href="REMUS_conflict.xsl"/>
 <xsl:include href="REMUS_defect.xsl"/>
 <xsl:include href="REMUS_change_request.xsl"/>
-<!--
-    <xsl:include href="REM_Simplified_SpecificationObject.xsl"/>
 
-        <xsl:include href="REM_Simplified_C_Requirement.xsl"/>
-
-            <xsl:include href="REM_ConstraintRequirement.xsl"/>
-            <xsl:include href="REM_Simplified_UseCase.xsl"/>
-            <xsl:include href="REM_FunctionalRequirement.xsl"/>
-            <xsl:include href="REM_NonFunctionalRequirement.xsl"/>
-        <xsl:include href="REM_TraceabilityMatrix.xsl"/>
-        <xsl:include href="REM_D_Requirement.xsl"/>
-            <xsl:include href="REM_ObjectType.xsl"/>
-            <xsl:include href="REM_ValueType.xsl"/>
-            <xsl:include href="REM_AssociationType.xsl"/>
-                <xsl:include href="REM_Attribute.xsl"/>
-                <xsl:include href="REM_Invariant.xsl"/>
-                <xsl:include href="REM_Role.xsl"/>
-            <xsl:include href="REM_SystemOperation.xsl"/>
-                <xsl:include href="REM_OperationException.xsl"/>
-        <xsl:include href="REM_Simplified_Conflict.xsl"/>
-        <xsl:include href="REM_Defect.xsl"/>
-            <xsl:include href="REM_Alternative.xsl"/>
-        <xsl:include href="REM_ChangeRequest.xsl"/>
-            <xsl:include href="REM_AffectedObjects.xsl"/>
--->
 </xsl:stylesheet>

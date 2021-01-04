@@ -1,0 +1,22 @@
+/* ======================================================= */
+/* File    : madeja.css                                    */
+/* Content : CSS for MADEJA objects                        */
+/* Author  : Amador Durán Toro                             */
+/* Date    : 2021/01/05                                    */
+/* Version : 3.0                                           */
+/* ======================================================= */
+
+/* ======================================================= */
+/* The browser inside REM is IE7, so this file only        */
+/* contains CSS supported by IE7.                          */
+/* ------------------------------------------------------- */
+/* IE 7 does not support :before and :after in CSS         */
+/* IE 7 does not support :last-child and :nth-child in CSS */
+/* ======================================================= */
+
+/* MADEJA objects */
+
+table.madeja_object > thead > tr
+{
+  background-color: rgb(207, 243, 207);
+}
