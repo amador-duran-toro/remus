@@ -39,7 +39,7 @@
         <meta charset="iso-8859-1"/>
         <meta name="generatedBy" content="REMUS"/>
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amador-duran-toro/remus@master/assets/stylesheets/remus.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amador-duran-toro/remus/assets/stylesheets/remus.css"/>
         <!-- <link rel="stylesheet" href="../assets/stylesheets/remus.css"/> -->
 
         <title>

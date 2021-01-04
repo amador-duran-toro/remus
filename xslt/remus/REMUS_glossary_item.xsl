@@ -19,19 +19,11 @@
     exclude-result-prefixes="rem"
 >
 
-<!-- it is a MADEJA object -->
-<xsl:template match="rem:glossaryItem[rem:isMadejaObject(string(rem:name))]">
-    <div>isMadejaObject(<xsl:value-of select="string(rem:name)"/>) = <xsl:value-of select="rem:isMadejaObject(string(rem:name))"/></div>
-</xsl:template>
-
 <!-- =========================================================== -->
 <!-- rem:glossaryItem template                                   -->
 <!-- =========================================================== -->
 
 <xsl:template match="rem:glossaryItem">
-
-    <!-- TODO: Puede que haya que ampliar esto para otros objetos de MADEJA, aquí o en los párrafos. -->
-    <!-- Quizás sea mejor usa call-template para no tener todo en este archivo.                      -->
 
     <!-- [bib] tag as the first word in glossary item's comments -->
     <xsl:variable name="class">

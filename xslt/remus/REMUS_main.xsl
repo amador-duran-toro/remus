@@ -57,6 +57,9 @@
 <xsl:include href="REMUS_document.xsl"/>
 <xsl:include href="REMUS_section.xsl"/>
 <xsl:include href="REMUS_appendix.xsl"/>
+<!-- stylesheet for MADEJA objects                          -->
+<!-- it must be included before glossary item and paragraph -->
+<xsl:include href="REMUS_madeja_object.xsl"/>
 <xsl:include href="REMUS_paragraph.xsl"/>
 <xsl:include href="REMUS_glossary_item.xsl"/>
 <xsl:include href="REMUS_graphic_file.xsl"/>
