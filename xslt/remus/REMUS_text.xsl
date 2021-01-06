@@ -53,7 +53,7 @@ Since [link_text](link) in markdown does not support a title attribute,
 ref:ref is generated as a link with a title attribute, as in the default
 stylesheet. Fortunately, showdown accepts <a> elements inside markdown code.
 
-4. All the the text must be inside a CSS-hidden textarea with oid=oid-fieldname-md,
+4. All the text must be inside a CSS-hidden textarea with oid=oid-fieldname-md,
 which is then processed as follows and showed in a div/span with oid=oid-fieldname-html.
 A varible is not used because of the escaping characters.
 
@@ -76,10 +76,10 @@ A varible is not used because of the escaping characters.
 <!-- using msxsl:node-set($prefix).                           -->
 <!-- ======================================================== -->
 
-<!-- oid parama is added for those situations in which more than -->
-<!-- one markdown text must be generated for elements with the   -->
-<!-- same local-name() under the same ancestor.                  -->
-<!-- This is the case in rem:operationException                  -->
+<!-- oid param is added for those situations in which more than -->
+<!-- one markdown text must be generated for elements with the  -->
+<!-- same local-name() under the same ancestor.                 -->
+<!-- This is the case in rem:operationException                 -->
 
 <xsl:template name="generate_markdown">
     <xsl:param name="oid" select="@oid"/>
