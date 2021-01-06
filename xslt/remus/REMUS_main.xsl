@@ -51,6 +51,10 @@
 <!-- Includes                                                 -->
 <!-- ======================================================== -->
 
+<!-- md -> html en xslt -->
+<xsl:include href="REMUS_markdown.xsl"/>
+<xsl:include href="REMUS_msxsl_script.xsl"/>
+
 <xsl:include href="REMUS_utilities.xsl"/>
 <xsl:include href="REMUS_text.xsl"/>
 <xsl:include href="REMUS_cover.xsl"/>

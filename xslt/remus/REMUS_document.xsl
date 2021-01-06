@@ -169,6 +169,12 @@
     <!-- document body -->
     <body>
 
+        <!-- Ejemplo de uso de transformación md -> html en xslt -->
+        <xsl:variable name="md_text">Hola **mundo**!</xsl:variable>
+        <ul>
+            <li>makeHtml - value-of = <xsl:value-of disable-output-escaping="yes" select="rem:makeHtml(string($md_text))"/></li>
+        </ul>
+
         <div id="warning_container" class="ui-widget">
             <span id="warning_title"><xsl:value-of select="$rem:lang_warnings"/></span>
             <div id="warning_messages"></div>
