@@ -30,13 +30,7 @@
         <!-- for debugging, hidden in CSS -->
         <div id="browser_info">
             <script>
-                document.write( navigator.userAgent + "<br/>" );
-                for( var opt in converter.getOptions() ) {
-                    document.write( "local option : " + opt + " = " + converter.getOption(opt) + "<br/>" );
-                }
-                for( var opt in showdown.getOptions() ) {
-                    document.write( "global option : " + opt + " = " + showdown.getOption(opt) + "<br/>" );
-                }
+                document.write( navigator.userAgent );
             </script>
         </div>
 

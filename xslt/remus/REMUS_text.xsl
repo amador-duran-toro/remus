@@ -4,8 +4,8 @@
 <!-- File    : REMUS_text.xsl                                 -->
 <!-- Content : REM stylesheet for RE subject - text           -->
 <!-- Author  : Amador Durán Toro                              -->
-<!-- Date    : 2020/07/16                                     -->
-<!-- Version : 3.0                                            -->
+<!-- Date    : 2021/01/06                                     -->
+<!-- Version : 3.1                                            -->
 <!-- ======================================================== -->
 
 <!-- ======================================================== -->
@@ -19,6 +19,13 @@
     xmlns:msxsl="urn:schemas-microsoft-com:xslt"
     exclude-result-prefixes="rem msxsl"
 >
+
+<!-- ======================================================== -->
+<!-- Version 3.1                                              -->
+<!-- Markdown to HTML transformation performed in XSLT using  -->
+<!-- msxsl:script with showdown 1.0.2. It is much faster than -->
+<!-- doing it in the browser.                                 -->
+<!-- ======================================================== -->
 
 <!-- ======================================================== -->
 <!--  IE 7 supports these element properties:                 -->
@@ -52,19 +59,6 @@ generating correct markdown code without double blank lines.
 Since [link_text](link) in markdown does not support a title attribute,
 ref:ref is generated as a link with a title attribute, as in the default
 stylesheet. Fortunately, showdown accepts <a> elements inside markdown code.
-
-4. All the text must be inside a CSS-hidden textarea with oid=oid-fieldname-md,
-which is then processed as follows and showed in a div/span with oid=oid-fieldname-html.
-A varible is not used because of the escaping characters.
-
-    <xsl:variable name="_id" select="concat(@oid,'-',local-name($node))"/>
-    <textarea id="{$_id}-md" class="markdown" rows="20" cols="80">
-        <xsl:apply-templates mode="markdown"/>
-    </textarea>
-    <div id="{$_id}-html"/>
-    <script>
-        generate_markdown("<xsl:value-of select="$_id"/>");
-    </script>
 -->
 
 <!-- ======================================================== -->
@@ -105,30 +99,30 @@ A varible is not used because of the escaping characters.
 
     <!-- Use normalize-space for prefix/postfix to avoid the 4 initial  -->
     <!-- spaces that make showdown treat the prefix as source code.     -->
-    <textarea id="{$_id}-md" class="markdown">
+    <xsl:variable name="md_text">
         <xsl:if test="$prefix">
-            <!-- <xsl:value-of select="concat(normalize-space($prefix), $prefix_space)"/> -->
             <xsl:copy-of select="$processed_prefix"/>
             <xsl:value-of select="$prefix_space"/>
         </xsl:if>
         <xsl:apply-templates select="$node" mode="markdown"/>
         <xsl:if test="$postfix">
-            <!-- <xsl:value-of select="concat($postfix_space, normalize-space($postfix))"/> -->
             <xsl:value-of select="$postfix_space"/>
             <xsl:copy-of select="$processed_postfix"/>
         </xsl:if>
-    </textarea>
+    </xsl:variable>
 
     <xsl:choose>
         <xsl:when test="$mode = 'inline'">
-            <span id="{$_id}-html" class="{$node_class}"></span>
-            <script>generate_markdown("<xsl:value-of select="$_id"/>",true);</script>
+            <span id="{$_id}-html" class="{$node_class}">
+                <xsl:value-of disable-output-escaping="yes" select="rem:makeHtml(string($md_text),true)"/>
+            </span>
         </xsl:when>
         <xsl:otherwise>
             <!-- NODE CLASS HERE -->
             <!-- using xsl:if test="$node_class" and xsl:attribute messes all up -->
-            <div id="{$_id}-html" class="{$node_class}"></div>
-            <script>generate_markdown("<xsl:value-of select="$_id"/>");</script>
+            <div id="{$_id}-html" class="{$node_class}">
+                <xsl:value-of disable-output-escaping="yes" select="rem:makeHtml(string($md_text))"/>
+            </div>
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
@@ -181,8 +175,6 @@ A varible is not used because of the escaping characters.
 
 <xsl:template match="rem:tbd" mode="markdown"><span class="tbd" title="{$rem:lang_TBD_expanded}"><xsl:value-of select="$rem:lang_TBD"/></span></xsl:template>
 
-<!-- <xsl:template match="rem:tbd" mode="markdown"><xsl:apply-templates select="." /></xsl:template> -->
-
 <!-- ======================================================== -->
 <!-- <span> template in "markdown" mode                       -->
 <!-- ======================================================== -->
@@ -219,24 +211,5 @@ A varible is not used because of the escaping characters.
 <!-- This is fixed in REMUS (REM 1.3).                        -->
 
 <xsl:template match="rem:name"><xsl:value-of select="normalize-space(.)"/></xsl:template>
-
-<!-- ======================================================== -->
-<!-- rem:name in mode "md" (markdown)                         -->
-<!-- Do not use mode="markdown" because it raises an infinite -->
-<!-- loop in generate_markdown.                               -->
-<!-- ======================================================== -->
-<!--
-This template fails because generate_markdown needs the current
-node to be the parent of the node parameter in order to access
-the @oid attribute. A workaround would be to add an "oid"
-parameter to the generate_markdown template.
-
-<xsl:template match="rem:name" mode="md">
-    <b>rem:name in mode = "md" <xsl:value-of select="text()"/></b>
-    <xsl:call-template name="generate_markdown">
-        <xsl:with-param name="node" select="text()"/>
-    </xsl:call-template>
-</xsl:template>
--->
 
 </xsl:stylesheet>

@@ -52,8 +52,9 @@
 <!-- ======================================================== -->
 
 <!-- md -> html en xslt -->
+<xsl:include href="REMUS_polyfills_showdown_1_9_1.xsl"/>
+<xsl:include href="REMUS_showdown_1_9_1.xsl"/>
 <xsl:include href="REMUS_markdown.xsl"/>
-<xsl:include href="REMUS_msxsl_script.xsl"/>
 
 <xsl:include href="REMUS_utilities.xsl"/>
 <xsl:include href="REMUS_text.xsl"/>

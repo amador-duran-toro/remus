@@ -4,13 +4,20 @@
 <!-- File    : REMUS_document.xsl                             -->
 <!-- Content : REM XSLT for subjects at US - document         -->
 <!-- Author  : Amador Durán Toro                              -->
-<!-- Date    : 2020/04/12                                     -->
-<!-- Version : 3.0                                            -->
+<!-- Date    : 2020/01/06                                     -->
+<!-- Version : 3.1                                            -->
 <!-- ======================================================== -->
 
 <!-- ======================================================== -->
 <!-- exclude-result-prefixes="rem" must be set in all files   -->
 <!-- to avoid xmlsn:rem="..." to appear in HTML tags.         -->
+<!-- ======================================================== -->
+
+<!-- ======================================================== -->
+<!-- Version 3.1                                              -->
+<!-- Markdown to HTML transformation performed in XSLT using  -->
+<!-- msxsl:script with showdown 1.0.2. It is much faster than -->
+<!-- doing it in the browser.                                 -->
 <!-- ======================================================== -->
 
 <xsl:stylesheet version="1.0"
@@ -48,119 +55,7 @@
             <xsl:apply-templates select="../rem:name"/>
         </title>
 
-        <!-- =========================================================== -->
-        <!-- After several tests, showdown 1.0.2 is the best option for  -->
-        <!-- adding markdown capabilities to IE7, which only accepts     -->
-        <!-- non-minified version of showdown 1.0.2.                     -->
-        <!--                                                             -->
-        <!-- The non-minified 1.9.1 version of showdown, that needs      -->
-        <!-- es5-shim.js, causes some problems with HTML tags inside     -->
-        <!-- markdown text raising a script error.                       -->
-        <!-- =========================================================== -->
-
-        <!-- IE 7 only accepts the non-minified 1.9.1 version of showdown, that needs es5-shim.js -->
-        <!--
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.14/es5-shim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.14/es5-sham.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.5/es6-shim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.5/es6-sham.min.js"></script>
-        -->
-
-        <!-- TODO: usar el CDN de github -->
-        <!-- "https://github.com/showdownjs/showdown" -->
-        <!-- "https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax" -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.0.2/showdown.js"></script>
-
         <script>
-            // showdown 1.0.2 (supported in IE 7 without es5-shim)
-            // Usage
-            // var result = converter.makeHtml(text);
-            // converter.setOption( "key", "value" );
-
-            var converter = new showdown.Converter();
-            // option not supported in Showdown 1.0.2
-            converter.setOption( "parseImgDimensions", true );
-
-            // function to be used in XLST templates
-            // if inline=true, all CRLF tags are replaced
-            // by spaces to avoid internal <p>..</p> and
-            // the enclosing <p>..</p> (if any) is discarded.
-
-            function generate_markdown( id, inline )
-            {
-                // optional parameter
-                if ( inline === undefined ) {
-                    inline = false;
-                }
-
-                var md_id   = id + "-md";
-                var html_id = id + "-html";
-
-                var md_container   = document.getElementById( md_id );
-                var html_container = document.getElementById( html_id );
-
-                var md_text = md_container.value;
-
-                //md_container.value = "remus_text = " + md_text; // for debugging
-
-                // Simple text replace can be performed using split and join faster
-                // than using replace with a regular expression as described in:
-                // https://dmitripavlutin.com/replace-all-string-occurrences-javascript/
-
-                /* no internal <p>...</p> in inline mode */
-                var newline = inline ? " " : "\n";
-                var two_newlines = newline + newline;
-
-                var crlf_tag             = "<xsl:value-of select="$rem:CRLF_tag"/>";
-                var two_crlf_tags        = crlf_tag + crlf_tag;
-                var three_spaces_newline = "   " + newline;
-                var reg_exp = new RegExp( "(" + crlf_tag + ")(?!(\\d\\.)|\\*|\\+|\\-|\\<xsl:text disable-output-escaping="yes">&lt;</xsl:text>)", 'g' );
-
-                // if ( inline )
-                //      replace all CRLF by spaces
-                // else
-                //      replace all CRLF+CRLF into \n\n
-                //      replace all CRLF not followed by *,+,-,> or a digit+period into 3 spaces + \n
-                //      replace all remaining CRLF into \n
-                // endif
-                //
-                // try regular expressions at: https://regexr.com/
-
-                if ( inline ) {
-                    md_text = md_text.split( crlf_tag ).join( newline );
-                }
-                else {
-                    md_text = md_text.split( two_crlf_tags ).join( newline + newline );
-                    md_text = md_text.replace( reg_exp, three_spaces_newline + "$2" );
-                    md_text = md_text.split( crlf_tag ).join( newline );
-                }
-
-                //md_container.value += "\n\nmd_text = " + md_text; // for debugging
-
-                // Don't get rid of enclosing <p>...</p> in paragraph mode,
-                // double \n inside markdown will close the first <p> generating an
-                // unbalanced </p> later and wrong html that will raise an
-                // error when assigned to innerHTML.
-
-                var html_text = converter.makeHtml( md_text );
-
-                if ( inline ) {
-                    // get rid of enclosing <p>...</p> (if any)
-                    // warning: generated item lists are not inside <p>...</p>
-                    // length("<p>") == 3, length("</p>") == 4
-                    if ( html_text.indexOf("<p>")       == 0 <xsl:text disable-output-escaping="yes">&amp;&amp;</xsl:text>
-                         html_text.lastIndexOf("</p>")  == html_text.length - 4 )
-                    {
-                        html_text = html_text.slice( 3, -4 );
-                    }
-                }
-
-                //md_container.value += ("\n\nhtml_text = " + html_text); // for debugging
-
-                html_container.innerHTML = html_text;
-            }
-
             // array for user warnings
             var warnings = new Array();
         </script>
@@ -168,12 +63,6 @@
 
     <!-- document body -->
     <body>
-
-        <!-- Ejemplo de uso de transformación md -> html en xslt -->
-        <xsl:variable name="md_text">Hola **mundo**!</xsl:variable>
-        <ul>
-            <li>makeHtml - value-of = <xsl:value-of disable-output-escaping="yes" select="rem:makeHtml(string($md_text))"/></li>
-        </ul>
 
         <div id="warning_container" class="ui-widget">
             <span id="warning_title"><xsl:value-of select="$rem:lang_warnings"/></span>

@@ -311,6 +311,7 @@ function bool2space(b) {
     <xsl:call-template name="generate_simple_row">
         <xsl:with-param name="label"   select="$rem:lang_version"/>
         <xsl:with-param name="content" select="rem:version"/>
+        <xsl:with-param name="content_class" select="'remus_version'"/>
         <xsl:with-param name="span"    select="$span"/>
     </xsl:call-template>
 
@@ -383,34 +384,6 @@ function bool2space(b) {
 
 <xsl:template match="rem:time">
     <xsl:value-of select="format-number(rem:hour,'00')"/>:<xsl:value-of select="format-number(rem:minute,'00')"/>
-</xsl:template>
-
-<!-- Puede que esto ya no sea necesario porque no hay que meter HTML en un atributo -->
-
-<!-- ============================================= -->
-<!-- EscapeChar template                           -->
-<!-- ============================================= -->
-
-<!--  Adapted from https://stackoverflow.com/questions/9370633/xslt-replacing-double-quotes-with-escape-sequence and        -->
-<!--  https://stackoverflow.com/questions/35855412/xslt-1-0-translate-string-change-character-to-new-line/35870363#35870363 -->
-
-<xsl:template name="EscapeChar">
-    <xsl:param name="inputString" select="."/>
-    <xsl:param name="charToEscape" select="string('&quot;')"/>
-    <xsl:choose>
-        <xsl:when test="contains($inputString, $charToEscape)">
-            <xsl:variable name="pre" select="substring-before($inputString, $charToEscape)"/>
-            <xsl:variable name="post" select="substring-after($inputString, $charToEscape)"/>
-            <xsl:value-of select="concat( $pre, '\', $charToEscape )"/>
-            <xsl:call-template name="EscapeChar">
-                <xsl:with-param name="inputString" select="$post"/>
-                <xsl:with-param name="charToEscape" select="$charToEscape"/>
-            </xsl:call-template>
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:value-of select="$inputString"/>
-        </xsl:otherwise>
-    </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>
