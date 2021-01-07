@@ -31,7 +31,7 @@
 
 <msxsl:script implements-prefix="rem">
 <![CDATA[
-var regexp = /^\[((FOR|DEB|ANA|PNA|HU)-\d+)\]\s*((.)*)/;
+var regexp = /^\[((FOR|DEB|ANA|PNA|ANI|PNI|HU)-\d+)\]\s*((.)*)/;
 
 function isMadejaObject(s) {
     return regexp.test(s) ? RegExp.$1 : false;
