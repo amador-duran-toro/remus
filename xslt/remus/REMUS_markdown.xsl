@@ -29,7 +29,7 @@
   var converter = new showdown.Converter();
 
   // some showdown options
-  //converter.setOption('simpleLineBreaks', true);
+  converter.setOption('simpleLineBreaks', true);
   converter.setOption('strikethrough', true);
   //converter.setOption('emoji', true);
   converter.setOption('tasklists', true);
