@@ -19,6 +19,12 @@
     exclude-result-prefixes="rem"
 >
 
+<!-- ======================================================== -->
+<!-- Version 3.1                                              -->
+<!-- rem:action must generate links to actors and other use   -->
+<!-- cases using markdown syntax instead of using <a></a>.    -->
+<!-- ======================================================== -->
+
 <!-- ============================================== -->
 <!-- rem:useCase template                           -->
 <!-- ============================================== -->
@@ -185,7 +191,7 @@
 
     <xsl:variable name="content">
         <xsl:apply-templates select="rem:systemAction|rem:actorAction|rem:useCaseAction"/>
-        <xsl:text>. </xsl:text>
+        <!-- <xsl:text>. </xsl:text> -->
     </xsl:variable>
 
     <xsl:variable name="comments" select="normalize-space(rem:comments)"/>
@@ -249,7 +255,7 @@
     </xsl:choose>
     <xsl:text> </xsl:text>
     <!-- <a href="#{@useCase}"><xsl:value-of select="id(@useCase)/rem:name"/> (<xsl:value-of select="@useCase"/>)</a> -->
-    [<xsl:value-of select="id(@useCase)/rem:name"/> \(<xsl:value-of select="@useCase"/>\)](#<xsl:value-of select="@useCase"/>)<!--        
+    [<xsl:value-of select="id(@useCase)/rem:name"/> \(<xsl:value-of select="@useCase"/>\)](#<xsl:value-of select="@useCase"/>)<!--
   --><xsl:if test="string-length($rem:lang_uc_lp_07)">
         <xsl:text> </xsl:text>
         <xsl:value-of select="$rem:lang_uc_lp_07"/>
