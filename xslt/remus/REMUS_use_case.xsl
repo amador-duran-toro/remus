@@ -4,8 +4,8 @@
 <!-- File    : REMUS_use_case.xsl                             -->
 <!-- Content : REM XSLT for subjects at US - use case         -->
 <!-- Author  : Amador Durán Toro                              -->
-<!-- Date    : 2021/09/11                                     -->
-<!-- Version : 3.1                                            -->
+<!-- Date    : 2022/10/03                                     -->
+<!-- Version : 3.2                                            -->
 <!-- ======================================================== -->
 
 <!-- ======================================================== -->
@@ -23,6 +23,11 @@
 <!-- Version 3.1                                              -->
 <!-- rem:action must generate links to actors and other use   -->
 <!-- cases using markdown syntax instead of using <a></a>.    -->
+<!-- ======================================================== -->
+<!-- Version 3.2                                              -->
+<!-- Fixed: links to other use cases including the use case   -->
+<!-- were not generated correctly in use cases' description   -->
+<!-- because they were generated not using markdown syntax.   -->
 <!-- ======================================================== -->
 
 <!-- ============================================== -->
@@ -133,7 +138,8 @@
             </xsl:if>
             <xsl:for-each select="//rem:useCase[.//rem:useCaseAction[@useCase=current()/@oid]]">
                 <xsl:sort select="@oid"/>
-                <a href="#{@oid}">[<xsl:value-of select="@oid"/>] <xsl:apply-templates select="rem:name"/></a><xsl:if test="not(position()=last())">, </xsl:if>
+                <!-- <a href="#{@oid}">[<xsl:value-of select="@oid"/>] <xsl:apply-templates select="rem:name"/></a> -->
+                [[<xsl:value-of select="@oid"/>] <xsl:apply-templates select="rem:name"/>](#<xsl:value-of select="@oid"/>)<xsl:if test="not(position()=last())">, </xsl:if>
             </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
